@@ -1,0 +1,97 @@
+
+# Movie Backend API
+
+A powerful backend built with **Node.js**, **Express.js**, and **Firebase Firestore** to manage movie-related data such as titles, images, tags, ratings, and more. This backend supports **CRUD operations**, dynamic pagination, and bulk uploading of movie records.
+
+---
+
+## Features 🚀
+
+- **CRUD Operations**: Create, Read, Update, and Delete movies using RESTful APIs.
+- **Dynamic Pagination**: Retrieve paginated movie data with customizable start and end indices.
+- **Bulk Upload**: Upload movie data from a JSON file.
+- **Error Handling**: Comprehensive error responses for smooth API usage.
+- **Firebase Firestore Integration**: A scalable NoSQL database to store movie details.
+
+---
+
+## Technologies Used 🛠️
+
+- **Node.js**: JavaScript runtime environment.
+- **Express.js**: Minimal and flexible Node.js web application framework.
+- **Firebase Firestore**: Cloud-based NoSQL database.
+- **dotenv**: Secure environment variable management.
+- **CORS**: Cross-Origin Resource Sharing for secure API access.
+
+---
+
+## Project Structure 📂
+
+Movie-backend/ ├── src/ │ ├── controllers/ │ │ ├── movieid.js # CRUD operations for movies │ │ └── mivieid.js # Bulk upload & pagination │ ├── firebase.js # Firebase initialization │ ├── model/ │ │ └── movie.json # Sample movie data ├── .env # Environment variables ├── index.js # Main server file ├── package.json # Project dependencies └── README.md # Project documentation
+
+yaml
+Copy code
+
+---
+
+## Installation & Setup 🔧
+
+1. **Clone the Repository**:
+   ```bash
+   git clone https://github.com/yourusername/movie-backend.git
+   cd movie-backend
+Install Dependencies:
+
+npm install
+Setup Environment Variables:
+Create a .env file in the root directory and add your Firebase credentials:
+
+APIKEY=your_api_key
+AUTHDOMAIN=your_auth_domain
+PROJECTID=your_project_id
+STORAGEBUCKET=your_storage_bucket
+MESSAGEINGSENDERID=your_messaging_sender_id
+APPID=your_app_id
+MESURMENTID=your_measurement_id
+Start the Server:
+
+
+npm start
+The server will run on http://localhost:3000.
+
+API Endpoints 🌐
+Movies CRUD
+Method	Endpoint	Description
+GET	/getmovies	Retrieve movies (paginated)
+GET	/getmovie/:id	Retrieve a specific movie
+POST	/postmovie	Add a new movie
+PUT	/updatemovie/:id	Update an existing movie
+DELETE	/deletemovie/:id	Delete a specific movie
+Bulk Upload
+Method	Endpoint	Description
+GET	/upload	Bulk upload movies from JSON
+Sample JSON Payload 📋
+Add a Movie
+
+{
+  "id": "12345",
+  "title": "Inception",
+  "movieImage": "https://image.url/inception.jpg",
+  "imageCaption": "A scene from Inception",
+  "releaseYear": 2010,
+  "ratingsSummary": 9.0,
+  "runtime": "148 mins",
+  "certificate": "PG-13",
+  "tags": ["Sci-Fi", "Thriller"],
+  "latestTrailer": "https://trailer.url/inception"
+}
+Running Bulk Upload 🔄
+Place your movie data JSON file in src/model/movie.json. Access the endpoint:
+
+GET http://localhost:3000/upload
+Error Handling ⚠️
+Standard error responses are returned for:
+
+Invalid movie IDs
+Duplicate movie records
+Missing data in request payloads

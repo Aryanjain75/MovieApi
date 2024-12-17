@@ -1,0 +1,1905 @@
+{
+    "data": {
+        "showtimesTitles": {
+            "edges": [
+                {
+                    "node": {
+                        "id": "tt16539454",
+                        "titleText": {
+                            "text": "Pushpa: The Rule - Part 2"
+                        },
+                        "titleType": {
+                            "id": "movie",
+                            "text": "Movie",
+                            "canHaveEpisodes": false,
+                            "displayableProperty": {
+                                "value": {
+                                    "plainText": ""
+                                }
+                            }
+                        },
+                        "originalTitleText": {
+                            "text": "Pushpa: The Rule - Part 2"
+                        },
+                        "primaryImage": {
+                            "id": "rm3149424129",
+                            "width": 1270,
+                            "height": 2048,
+                            "url": "https://m.media-amazon.com/images/M/MV5BNWU1ZWFhNGQtZDhlZC00ZWFlLTlmNmEtN2VmYmZiN2Y5ZmQ2XkEyXkFqcGc@._V1_.jpg",
+                            "caption": {
+                                "plainText": "Sreeleela, Allu Arjun, Fahadh Faasil, and Rashmika Mandanna in Pushpa: The Rule - Part 2 (2024)"
+                            }
+                        },
+                        "releaseYear": {
+                            "year": 2024,
+                            "endYear": null
+                        },
+                        "ratingsSummary": {
+                            "aggregateRating": 6.7,
+                            "voteCount": 27066
+                        },
+                        "runtime": {
+                            "seconds": 12060
+                        },
+                        "certificate": null,
+                        "canRate": {
+                            "isRatable": true
+                        },
+                        "titleGenres": {
+                            "genres": [
+                                {
+                                    "genre": {
+                                        "text": "Action"
+                                    }
+                                },
+                                {
+                                    "genre": {
+                                        "text": "Crime"
+                                    }
+                                },
+                                {
+                                    "genre": {
+                                        "text": "Drama"
+                                    }
+                                }
+                            ]
+                        },
+                        "canHaveEpisodes": false,
+                        "latestTrailer": {
+                            "id": "vi1721157913"
+                        }
+                    }
+                },
+                {
+                    "node": {
+                        "id": "tt32553846",
+                        "titleText": {
+                            "text": "Miss You"
+                        },
+                        "titleType": {
+                            "id": "movie",
+                            "text": "Movie",
+                            "canHaveEpisodes": false,
+                            "displayableProperty": {
+                                "value": {
+                                    "plainText": ""
+                                }
+                            }
+                        },
+                        "originalTitleText": {
+                            "text": "Miss You"
+                        },
+                        "primaryImage": {
+                            "id": "rm4106317825",
+                            "width": 1418,
+                            "height": 2048,
+                            "url": "https://m.media-amazon.com/images/M/MV5BZjFlOTg1MDUtYTMwOS00MDBlLWE4ZjAtZjAzZWJjYzEyZWNjXkEyXkFqcGc@._V1_.jpg",
+                            "caption": {
+                                "plainText": "Miss You (2024)"
+                            }
+                        },
+                        "releaseYear": {
+                            "year": 2024,
+                            "endYear": null
+                        },
+                        "ratingsSummary": {
+                            "aggregateRating": 7.1,
+                            "voteCount": 61
+                        },
+                        "runtime": {
+                            "seconds": 7680
+                        },
+                        "certificate": null,
+                        "canRate": {
+                            "isRatable": true
+                        },
+                        "titleGenres": {
+                            "genres": [
+                                {
+                                    "genre": {
+                                        "text": "Romance"
+                                    }
+                                }
+                            ]
+                        },
+                        "canHaveEpisodes": false,
+                        "latestTrailer": {
+                            "id": "vi1250019609"
+                        }
+                    }
+                },
+                {
+                    "node": {
+                        "id": "tt13622970",
+                        "titleText": {
+                            "text": "Moana 2"
+                        },
+                        "titleType": {
+                            "id": "movie",
+                            "text": "Movie",
+                            "canHaveEpisodes": false,
+                            "displayableProperty": {
+                                "value": {
+                                    "plainText": ""
+                                }
+                            }
+                        },
+                        "originalTitleText": {
+                            "text": "Moana 2"
+                        },
+                        "primaryImage": {
+                            "id": "rm1958044417",
+                            "width": 4050,
+                            "height": 6000,
+                            "url": "https://m.media-amazon.com/images/M/MV5BZDUxNThhYTUtYjgxNy00MGQ4LTgzOTEtZjg1YTU5NTcwNThlXkEyXkFqcGc@._V1_.jpg",
+                            "caption": {
+                                "plainText": "Dwayne Johnson, Maui, Moana, and Auli'i Cravalho in Moana 2 (2024)"
+                            }
+                        },
+                        "releaseYear": {
+                            "year": 2024,
+                            "endYear": null
+                        },
+                        "ratingsSummary": {
+                            "aggregateRating": 7,
+                            "voteCount": 40177
+                        },
+                        "runtime": {
+                            "seconds": 6000
+                        },
+                        "certificate": {
+                            "rating": "PG"
+                        },
+                        "canRate": {
+                            "isRatable": true
+                        },
+                        "titleGenres": {
+                            "genres": [
+                                {
+                                    "genre": {
+                                        "text": "Animation"
+                                    }
+                                },
+                                {
+                                    "genre": {
+                                        "text": "Adventure"
+                                    }
+                                },
+                                {
+                                    "genre": {
+                                        "text": "Comedy"
+                                    }
+                                }
+                            ]
+                        },
+                        "canHaveEpisodes": false,
+                        "latestTrailer": {
+                            "id": "vi3932079641"
+                        }
+                    }
+                },
+                {
+                    "node": {
+                        "id": "tt33428606",
+                        "titleText": {
+                            "text": "Solo Leveling: ReAwakening"
+                        },
+                        "titleType": {
+                            "id": "movie",
+                            "text": "Movie",
+                            "canHaveEpisodes": false,
+                            "displayableProperty": {
+                                "value": {
+                                    "plainText": ""
+                                }
+                            }
+                        },
+                        "originalTitleText": {
+                            "text": "Solo Leveling: ReAwakening"
+                        },
+                        "primaryImage": {
+                            "id": "rm4231030273",
+                            "width": 2000,
+                            "height": 3000,
+                            "url": "https://m.media-amazon.com/images/M/MV5BYTIwYzk3YmQtZmMwNS00ZDAwLTk5Y2MtOTEwODFlZmExMzliXkEyXkFqcGc@._V1_.jpg",
+                            "caption": {
+                                "plainText": "Solo Leveling: ReAwakening (2024)"
+                            }
+                        },
+                        "releaseYear": {
+                            "year": 2024,
+                            "endYear": null
+                        },
+                        "ratingsSummary": {
+                            "aggregateRating": 8.2,
+                            "voteCount": 1179
+                        },
+                        "runtime": {
+                            "seconds": 7260
+                        },
+                        "certificate": null,
+                        "canRate": {
+                            "isRatable": true
+                        },
+                        "titleGenres": {
+                            "genres": [
+                                {
+                                    "genre": {
+                                        "text": "Animation"
+                                    }
+                                },
+                                {
+                                    "genre": {
+                                        "text": "Action"
+                                    }
+                                },
+                                {
+                                    "genre": {
+                                        "text": "Adventure"
+                                    }
+                                }
+                            ]
+                        },
+                        "canHaveEpisodes": false,
+                        "latestTrailer": {
+                            "id": "vi143903001"
+                        }
+                    }
+                },
+                {
+                    "node": {
+                        "id": "tt31064317",
+                        "titleText": {
+                            "text": "Fear"
+                        },
+                        "titleType": {
+                            "id": "movie",
+                            "text": "Movie",
+                            "canHaveEpisodes": false,
+                            "displayableProperty": {
+                                "value": {
+                                    "plainText": ""
+                                }
+                            }
+                        },
+                        "originalTitleText": {
+                            "text": "Fear"
+                        },
+                        "primaryImage": {
+                            "id": "rm1514302721",
+                            "width": 1638,
+                            "height": 2048,
+                            "url": "https://m.media-amazon.com/images/M/MV5BYjQzN2QxMzMtZjczZS00MjJlLTg4Y2QtNWYwMGIwYjIwOTRiXkEyXkFqcGc@._V1_.jpg",
+                            "caption": {
+                                "plainText": "Fear (2024)"
+                            }
+                        },
+                        "releaseYear": {
+                            "year": 2024,
+                            "endYear": null
+                        },
+                        "ratingsSummary": {
+                            "aggregateRating": 9.4,
+                            "voteCount": 81
+                        },
+                        "runtime": {
+                            "seconds": 6900
+                        },
+                        "certificate": null,
+                        "canRate": {
+                            "isRatable": true
+                        },
+                        "titleGenres": {
+                            "genres": [
+                                {
+                                    "genre": {
+                                        "text": "Drama"
+                                    }
+                                },
+                                {
+                                    "genre": {
+                                        "text": "Family"
+                                    }
+                                },
+                                {
+                                    "genre": {
+                                        "text": "Thriller"
+                                    }
+                                }
+                            ]
+                        },
+                        "canHaveEpisodes": false,
+                        "latestTrailer": null
+                    }
+                },
+                {
+                    "node": {
+                        "id": "tt29461220",
+                        "titleText": {
+                            "text": "Pani"
+                        },
+                        "titleType": {
+                            "id": "movie",
+                            "text": "Movie",
+                            "canHaveEpisodes": false,
+                            "displayableProperty": {
+                                "value": {
+                                    "plainText": ""
+                                }
+                            }
+                        },
+                        "originalTitleText": {
+                            "text": "Pani"
+                        },
+                        "primaryImage": {
+                            "id": "rm2548134657",
+                            "width": 1638,
+                            "height": 2048,
+                            "url": "https://m.media-amazon.com/images/M/MV5BODQ4NmQ4MmEtNGU0Yy00MWQxLWEyYjktNDMxY2MyOWU5MDFmXkEyXkFqcGc@._V1_.jpg",
+                            "caption": {
+                                "plainText": "Pani (2024)"
+                            }
+                        },
+                        "releaseYear": {
+                            "year": 2024,
+                            "endYear": null
+                        },
+                        "ratingsSummary": {
+                            "aggregateRating": 6.8,
+                            "voteCount": 557
+                        },
+                        "runtime": {
+                            "seconds": 8580
+                        },
+                        "certificate": null,
+                        "canRate": {
+                            "isRatable": true
+                        },
+                        "titleGenres": {
+                            "genres": [
+                                {
+                                    "genre": {
+                                        "text": "Crime"
+                                    }
+                                }
+                            ]
+                        },
+                        "canHaveEpisodes": false,
+                        "latestTrailer": {
+                            "id": "vi3065301273"
+                        }
+                    }
+                },
+                {
+                    "node": {
+                        "id": "tt34874906",
+                        "titleText": {
+                            "text": "Pranaya Godari"
+                        },
+                        "titleType": {
+                            "id": "movie",
+                            "text": "Movie",
+                            "canHaveEpisodes": false,
+                            "displayableProperty": {
+                                "value": {
+                                    "plainText": ""
+                                }
+                            }
+                        },
+                        "originalTitleText": {
+                            "text": "Pranaya Godari"
+                        },
+                        "primaryImage": {
+                            "id": "rm2209650946",
+                            "width": 2000,
+                            "height": 3000,
+                            "url": "https://m.media-amazon.com/images/M/MV5BNzIzOTBlZWQtNzVkNy00YjhiLWIzMjgtMWZmMGE1OWU3M2M5XkEyXkFqcGc@._V1_.jpg",
+                            "caption": {
+                                "plainText": "Pranaya Godari (2024)"
+                            }
+                        },
+                        "releaseYear": {
+                            "year": 2024,
+                            "endYear": null
+                        },
+                        "ratingsSummary": {
+                            "aggregateRating": 4.8,
+                            "voteCount": 445
+                        },
+                        "runtime": null,
+                        "certificate": null,
+                        "canRate": {
+                            "isRatable": true
+                        },
+                        "titleGenres": {
+                            "genres": [
+                                {
+                                    "genre": {
+                                        "text": "Romance"
+                                    }
+                                },
+                                {
+                                    "genre": {
+                                        "text": "Action"
+                                    }
+                                }
+                            ]
+                        },
+                        "canHaveEpisodes": false,
+                        "latestTrailer": null
+                    }
+                },
+                {
+                    "node": {
+                        "id": "tt32134742",
+                        "titleText": {
+                            "text": "Zero Se Restart"
+                        },
+                        "titleType": {
+                            "id": "movie",
+                            "text": "Movie",
+                            "canHaveEpisodes": false,
+                            "displayableProperty": {
+                                "value": {
+                                    "plainText": ""
+                                }
+                            }
+                        },
+                        "originalTitleText": {
+                            "text": "Zero Se Restart"
+                        },
+                        "primaryImage": {
+                            "id": "rm1718772993",
+                            "width": 2164,
+                            "height": 2880,
+                            "url": "https://m.media-amazon.com/images/M/MV5BOTA1ZGJhNWQtYWY0ZS00NjJlLWFjOGEtN2QwZTYxZDU3NWJlXkEyXkFqcGc@._V1_.jpg",
+                            "caption": {
+                                "plainText": "Zero Se Restart (2024)"
+                            }
+                        },
+                        "releaseYear": {
+                            "year": 2024,
+                            "endYear": null
+                        },
+                        "ratingsSummary": {
+                            "aggregateRating": 8.3,
+                            "voteCount": 37
+                        },
+                        "runtime": {
+                            "seconds": 4380
+                        },
+                        "certificate": null,
+                        "canRate": {
+                            "isRatable": true
+                        },
+                        "titleGenres": {
+                            "genres": [
+                                {
+                                    "genre": {
+                                        "text": "Drama"
+                                    }
+                                }
+                            ]
+                        },
+                        "canHaveEpisodes": false,
+                        "latestTrailer": {
+                            "id": "vi59230489"
+                        }
+                    }
+                },
+                {
+                    "node": {
+                        "id": "tt28015403",
+                        "titleText": {
+                            "text": "Heretic"
+                        },
+                        "titleType": {
+                            "id": "movie",
+                            "text": "Movie",
+                            "canHaveEpisodes": false,
+                            "displayableProperty": {
+                                "value": {
+                                    "plainText": ""
+                                }
+                            }
+                        },
+                        "originalTitleText": {
+                            "text": "Heretic"
+                        },
+                        "primaryImage": {
+                            "id": "rm2075681281",
+                            "width": 1944,
+                            "height": 2880,
+                            "url": "https://m.media-amazon.com/images/M/MV5BMzFiMWM4YjAtY2Y3Yi00MDIzLTk0N2MtYTAwNGM3ZmMwODhlXkEyXkFqcGc@._V1_.jpg",
+                            "caption": {
+                                "plainText": "Hugh Grant in Heretic (2024)"
+                            }
+                        },
+                        "releaseYear": {
+                            "year": 2024,
+                            "endYear": null
+                        },
+                        "ratingsSummary": {
+                            "aggregateRating": 7.1,
+                            "voteCount": 35724
+                        },
+                        "runtime": {
+                            "seconds": 6660
+                        },
+                        "certificate": {
+                            "rating": "R"
+                        },
+                        "canRate": {
+                            "isRatable": true
+                        },
+                        "titleGenres": {
+                            "genres": [
+                                {
+                                    "genre": {
+                                        "text": "Horror"
+                                    }
+                                },
+                                {
+                                    "genre": {
+                                        "text": "Thriller"
+                                    }
+                                }
+                            ]
+                        },
+                        "canHaveEpisodes": false,
+                        "latestTrailer": {
+                            "id": "vi2504771097"
+                        }
+                    }
+                },
+                {
+                    "node": {
+                        "id": "tt30889755",
+                        "titleText": {
+                            "text": "The Sabarmati Report"
+                        },
+                        "titleType": {
+                            "id": "movie",
+                            "text": "Movie",
+                            "canHaveEpisodes": false,
+                            "displayableProperty": {
+                                "value": {
+                                    "plainText": ""
+                                }
+                            }
+                        },
+                        "originalTitleText": {
+                            "text": "The Sabarmati Report"
+                        },
+                        "primaryImage": {
+                            "id": "rm85746945",
+                            "width": 1080,
+                            "height": 1350,
+                            "url": "https://m.media-amazon.com/images/M/MV5BM2U3OGIzOTYtYjA1OS00ODc0LWJlMGUtYTE2NzlkN2ZjMTNiXkEyXkFqcGc@._V1_.jpg",
+                            "caption": {
+                                "plainText": "Vikrant Massey, Raashi Khanna, and Ridhi Dogra in The Sabarmati Report (2024)"
+                            }
+                        },
+                        "releaseYear": {
+                            "year": 2024,
+                            "endYear": null
+                        },
+                        "ratingsSummary": {
+                            "aggregateRating": 6.6,
+                            "voteCount": 20786
+                        },
+                        "runtime": {
+                            "seconds": 7620
+                        },
+                        "certificate": null,
+                        "canRate": {
+                            "isRatable": true
+                        },
+                        "titleGenres": {
+                            "genres": [
+                                {
+                                    "genre": {
+                                        "text": "Drama"
+                                    }
+                                },
+                                {
+                                    "genre": {
+                                        "text": "Thriller"
+                                    }
+                                }
+                            ]
+                        },
+                        "canHaveEpisodes": false,
+                        "latestTrailer": {
+                            "id": "vi1907018009"
+                        }
+                    }
+                },
+                {
+                    "node": {
+                        "id": "tt26737770",
+                        "titleText": {
+                            "text": "Rudhiram"
+                        },
+                        "titleType": {
+                            "id": "movie",
+                            "text": "Movie",
+                            "canHaveEpisodes": false,
+                            "displayableProperty": {
+                                "value": {
+                                    "plainText": ""
+                                }
+                            }
+                        },
+                        "originalTitleText": {
+                            "text": "Rudhiram"
+                        },
+                        "primaryImage": {
+                            "id": "rm2072026626",
+                            "width": 2055,
+                            "height": 3000,
+                            "url": "https://m.media-amazon.com/images/M/MV5BNGIzZjFiNzItZjBjMi00ODZiLTk1YmMtMGE2YzZjZTJhZjdmXkEyXkFqcGc@._V1_.jpg",
+                            "caption": {
+                                "plainText": "Aparna Balamurali and Raj B. Shetty in Rudhiram (2024)"
+                            }
+                        },
+                        "releaseYear": {
+                            "year": 2024,
+                            "endYear": null
+                        },
+                        "ratingsSummary": {
+                            "aggregateRating": 9.1,
+                            "voteCount": 48
+                        },
+                        "runtime": {
+                            "seconds": 7440
+                        },
+                        "certificate": null,
+                        "canRate": {
+                            "isRatable": true
+                        },
+                        "titleGenres": {
+                            "genres": [
+                                {
+                                    "genre": {
+                                        "text": "Drama"
+                                    }
+                                }
+                            ]
+                        },
+                        "canHaveEpisodes": false,
+                        "latestTrailer": {
+                            "id": "vi3515664665"
+                        }
+                    }
+                },
+                {
+                    "node": {
+                        "id": "tt13186482",
+                        "titleText": {
+                            "text": "Mufasa: The Lion King"
+                        },
+                        "titleType": {
+                            "id": "movie",
+                            "text": "Movie",
+                            "canHaveEpisodes": false,
+                            "displayableProperty": {
+                                "value": {
+                                    "plainText": ""
+                                }
+                            }
+                        },
+                        "originalTitleText": {
+                            "text": "Mufasa: The Lion King"
+                        },
+                        "primaryImage": {
+                            "id": "rm881550593",
+                            "width": 864,
+                            "height": 1280,
+                            "url": "https://m.media-amazon.com/images/M/MV5BYjBkOWUwODYtYWI3YS00N2I0LWEyYTktOTJjM2YzOTc3ZDNlXkEyXkFqcGc@._V1_.jpg",
+                            "caption": {
+                                "plainText": "John Kani, Seth Rogen, Kagiso Lediga, Preston Nyman, Billy Eichner, Kelvin Harrison Jr., Blue Ivy Carter, and Aaron Pierre in Mufasa: The Lion King (2024)"
+                            }
+                        },
+                        "releaseYear": {
+                            "year": 2024,
+                            "endYear": null
+                        },
+                        "ratingsSummary": {
+                            "aggregateRating": null,
+                            "voteCount": 0
+                        },
+                        "runtime": {
+                            "seconds": 7200
+                        },
+                        "certificate": {
+                            "rating": "PG"
+                        },
+                        "canRate": {
+                            "isRatable": false
+                        },
+                        "titleGenres": {
+                            "genres": [
+                                {
+                                    "genre": {
+                                        "text": "Animation"
+                                    }
+                                },
+                                {
+                                    "genre": {
+                                        "text": "Adventure"
+                                    }
+                                },
+                                {
+                                    "genre": {
+                                        "text": "Drama"
+                                    }
+                                }
+                            ]
+                        },
+                        "canHaveEpisodes": false,
+                        "latestTrailer": {
+                            "id": "vi3953117465"
+                        }
+                    }
+                },
+                {
+                    "node": {
+                        "id": "tt0048613",
+                        "titleText": {
+                            "text": "Shree 420"
+                        },
+                        "titleType": {
+                            "id": "movie",
+                            "text": "Movie",
+                            "canHaveEpisodes": false,
+                            "displayableProperty": {
+                                "value": {
+                                    "plainText": ""
+                                }
+                            }
+                        },
+                        "originalTitleText": {
+                            "text": "Shree 420"
+                        },
+                        "primaryImage": {
+                            "id": "rm1696622592",
+                            "width": 433,
+                            "height": 645,
+                            "url": "https://m.media-amazon.com/images/M/MV5BNThkNDI4NDgtNmIyYy00ODY5LWIwNTgtNTE5NDI3MzFkOTAzXkEyXkFqcGc@._V1_.jpg",
+                            "caption": {
+                                "plainText": "Shree 420 (1955)"
+                            }
+                        },
+                        "releaseYear": {
+                            "year": 1955,
+                            "endYear": null
+                        },
+                        "ratingsSummary": {
+                            "aggregateRating": 7.9,
+                            "voteCount": 3104
+                        },
+                        "runtime": {
+                            "seconds": 10080
+                        },
+                        "certificate": null,
+                        "canRate": {
+                            "isRatable": true
+                        },
+                        "titleGenres": {
+                            "genres": [
+                                {
+                                    "genre": {
+                                        "text": "Comedy"
+                                    }
+                                },
+                                {
+                                    "genre": {
+                                        "text": "Crime"
+                                    }
+                                },
+                                {
+                                    "genre": {
+                                        "text": "Drama"
+                                    }
+                                }
+                            ]
+                        },
+                        "canHaveEpisodes": false,
+                        "latestTrailer": {
+                            "id": "vi471711513"
+                        }
+                    }
+                },
+                {
+                    "node": {
+                        "id": "tt0069810",
+                        "titleText": {
+                            "text": "Bobby"
+                        },
+                        "titleType": {
+                            "id": "movie",
+                            "text": "Movie",
+                            "canHaveEpisodes": false,
+                            "displayableProperty": {
+                                "value": {
+                                    "plainText": ""
+                                }
+                            }
+                        },
+                        "originalTitleText": {
+                            "text": "Bobby"
+                        },
+                        "primaryImage": {
+                            "id": "rm2459198721",
+                            "width": 1100,
+                            "height": 1580,
+                            "url": "https://m.media-amazon.com/images/M/MV5BNWJiZDc0ZWYtYzMxMi00ZGI0LTg3NzktZWNhZDQ0ZTEzYTc0XkEyXkFqcGc@._V1_.jpg",
+                            "caption": {
+                                "plainText": "Dimple Kapadia and Rishi Kapoor in Bobby (1973)"
+                            }
+                        },
+                        "releaseYear": {
+                            "year": 1973,
+                            "endYear": null
+                        },
+                        "ratingsSummary": {
+                            "aggregateRating": 6.9,
+                            "voteCount": 2070
+                        },
+                        "runtime": {
+                            "seconds": 10080
+                        },
+                        "certificate": null,
+                        "canRate": {
+                            "isRatable": true
+                        },
+                        "titleGenres": {
+                            "genres": [
+                                {
+                                    "genre": {
+                                        "text": "Comedy"
+                                    }
+                                },
+                                {
+                                    "genre": {
+                                        "text": "Drama"
+                                    }
+                                },
+                                {
+                                    "genre": {
+                                        "text": "Musical"
+                                    }
+                                }
+                            ]
+                        },
+                        "canHaveEpisodes": false,
+                        "latestTrailer": {
+                            "id": "vi3961306905"
+                        }
+                    }
+                },
+                {
+                    "node": {
+                        "id": "tt32495687",
+                        "titleText": {
+                            "text": "Sookshma Darshini"
+                        },
+                        "titleType": {
+                            "id": "movie",
+                            "text": "Movie",
+                            "canHaveEpisodes": false,
+                            "displayableProperty": {
+                                "value": {
+                                    "plainText": ""
+                                }
+                            }
+                        },
+                        "originalTitleText": {
+                            "text": "Sookshma Darshini"
+                        },
+                        "primaryImage": {
+                            "id": "rm1499165441",
+                            "width": 1080,
+                            "height": 1350,
+                            "url": "https://m.media-amazon.com/images/M/MV5BZDBmY2U2MGUtMWIxNi00ZWNjLTg5OWMtZWFhNDU0M2I4OTIzXkEyXkFqcGc@._V1_.jpg",
+                            "caption": {
+                                "plainText": "Sookshma Darshini (2024)"
+                            }
+                        },
+                        "releaseYear": {
+                            "year": 2024,
+                            "endYear": null
+                        },
+                        "ratingsSummary": {
+                            "aggregateRating": 8.2,
+                            "voteCount": 2354
+                        },
+                        "runtime": {
+                            "seconds": 8520
+                        },
+                        "certificate": null,
+                        "canRate": {
+                            "isRatable": true
+                        },
+                        "titleGenres": {
+                            "genres": [
+                                {
+                                    "genre": {
+                                        "text": "Thriller"
+                                    }
+                                }
+                            ]
+                        },
+                        "canHaveEpisodes": false,
+                        "latestTrailer": {
+                            "id": "vi2643904793"
+                        }
+                    }
+                },
+                {
+                    "node": {
+                        "id": "tt26932223",
+                        "titleText": {
+                            "text": "Bhool Bhulaiyaa 3"
+                        },
+                        "titleType": {
+                            "id": "movie",
+                            "text": "Movie",
+                            "canHaveEpisodes": false,
+                            "displayableProperty": {
+                                "value": {
+                                    "plainText": ""
+                                }
+                            }
+                        },
+                        "originalTitleText": {
+                            "text": "Bhool Bhulaiyaa 3"
+                        },
+                        "primaryImage": {
+                            "id": "rm2527159041",
+                            "width": 1638,
+                            "height": 2048,
+                            "url": "https://m.media-amazon.com/images/M/MV5BMjYyMTM4NjMtMjgzOS00N2RiLTlmZDUtOWJlMDZiOTVkMzA4XkEyXkFqcGc@._V1_.jpg",
+                            "caption": {
+                                "plainText": "Bhool Bhulaiyaa 3 (2024)"
+                            }
+                        },
+                        "releaseYear": {
+                            "year": 2024,
+                            "endYear": null
+                        },
+                        "ratingsSummary": {
+                            "aggregateRating": 5.1,
+                            "voteCount": 71388
+                        },
+                        "runtime": {
+                            "seconds": 9480
+                        },
+                        "certificate": null,
+                        "canRate": {
+                            "isRatable": true
+                        },
+                        "titleGenres": {
+                            "genres": [
+                                {
+                                    "genre": {
+                                        "text": "Comedy"
+                                    }
+                                },
+                                {
+                                    "genre": {
+                                        "text": "Horror"
+                                    }
+                                }
+                            ]
+                        },
+                        "canHaveEpisodes": false,
+                        "latestTrailer": {
+                            "id": "vi3343697433"
+                        }
+                    }
+                },
+                {
+                    "node": {
+                        "id": "tt6723592",
+                        "titleText": {
+                            "text": "Tenet"
+                        },
+                        "titleType": {
+                            "id": "movie",
+                            "text": "Movie",
+                            "canHaveEpisodes": false,
+                            "displayableProperty": {
+                                "value": {
+                                    "plainText": ""
+                                }
+                            }
+                        },
+                        "originalTitleText": {
+                            "text": "Tenet"
+                        },
+                        "primaryImage": {
+                            "id": "rm1748282625",
+                            "width": 2000,
+                            "height": 3000,
+                            "url": "https://m.media-amazon.com/images/M/MV5BMTU0ZjZlYTUtYzIwMC00ZmQzLWEwZTAtZWFhMWIwYjMxY2I3XkEyXkFqcGc@._V1_.jpg",
+                            "caption": {
+                                "plainText": "John David Washington in Tenet (2020)"
+                            }
+                        },
+                        "releaseYear": {
+                            "year": 2020,
+                            "endYear": null
+                        },
+                        "ratingsSummary": {
+                            "aggregateRating": 7.3,
+                            "voteCount": 614281
+                        },
+                        "runtime": {
+                            "seconds": 9000
+                        },
+                        "certificate": {
+                            "rating": "PG-13"
+                        },
+                        "canRate": {
+                            "isRatable": true
+                        },
+                        "titleGenres": {
+                            "genres": [
+                                {
+                                    "genre": {
+                                        "text": "Action"
+                                    }
+                                },
+                                {
+                                    "genre": {
+                                        "text": "Sci-Fi"
+                                    }
+                                },
+                                {
+                                    "genre": {
+                                        "text": "Thriller"
+                                    }
+                                }
+                            ]
+                        },
+                        "canHaveEpisodes": false,
+                        "latestTrailer": {
+                            "id": "vi3067265305"
+                        }
+                    }
+                },
+                {
+                    "node": {
+                        "id": "tt27757690",
+                        "titleText": {
+                            "text": "Zebra"
+                        },
+                        "titleType": {
+                            "id": "movie",
+                            "text": "Movie",
+                            "canHaveEpisodes": false,
+                            "displayableProperty": {
+                                "value": {
+                                    "plainText": ""
+                                }
+                            }
+                        },
+                        "originalTitleText": {
+                            "text": "Zebra"
+                        },
+                        "primaryImage": {
+                            "id": "rm348463617",
+                            "width": 1365,
+                            "height": 2048,
+                            "url": "https://m.media-amazon.com/images/M/MV5BNmJmNjI1NDUtOGI2MC00MmVkLThjN2YtOTQ1MGFhZWNkOTRiXkEyXkFqcGc@._V1_.jpg",
+                            "caption": {
+                                "plainText": "Zebra (2024)"
+                            }
+                        },
+                        "releaseYear": {
+                            "year": 2024,
+                            "endYear": null
+                        },
+                        "ratingsSummary": {
+                            "aggregateRating": 8.6,
+                            "voteCount": 2493
+                        },
+                        "runtime": {
+                            "seconds": 9840
+                        },
+                        "certificate": null,
+                        "canRate": {
+                            "isRatable": true
+                        },
+                        "titleGenres": {
+                            "genres": [
+                                {
+                                    "genre": {
+                                        "text": "Action"
+                                    }
+                                },
+                                {
+                                    "genre": {
+                                        "text": "Crime"
+                                    }
+                                },
+                                {
+                                    "genre": {
+                                        "text": "Thriller"
+                                    }
+                                }
+                            ]
+                        },
+                        "canHaveEpisodes": false,
+                        "latestTrailer": {
+                            "id": "vi2425407769"
+                        }
+                    }
+                },
+                {
+                    "node": {
+                        "id": "tt11976134",
+                        "titleText": {
+                            "text": "Singham Again"
+                        },
+                        "titleType": {
+                            "id": "movie",
+                            "text": "Movie",
+                            "canHaveEpisodes": false,
+                            "displayableProperty": {
+                                "value": {
+                                    "plainText": ""
+                                }
+                            }
+                        },
+                        "originalTitleText": {
+                            "text": "Singham Again"
+                        },
+                        "primaryImage": {
+                            "id": "rm1116365057",
+                            "width": 2970,
+                            "height": 5280,
+                            "url": "https://m.media-amazon.com/images/M/MV5BMjQzZDExZDEtYjAxYy00ZGVhLWE4YWItNTVkZjA5ZjVjZWM3XkEyXkFqcGc@._V1_.jpg",
+                            "caption": {
+                                "plainText": "Kareena Kapoor, Jackie Shroff, Ajay Devgn, Akshay Kumar, Arjun Kapoor, Deepika Padukone, Ranveer Singh, and Tiger Shroff in Singham Again (2024)"
+                            }
+                        },
+                        "releaseYear": {
+                            "year": 2024,
+                            "endYear": null
+                        },
+                        "ratingsSummary": {
+                            "aggregateRating": 5.6,
+                            "voteCount": 69823
+                        },
+                        "runtime": {
+                            "seconds": 8640
+                        },
+                        "certificate": null,
+                        "canRate": {
+                            "isRatable": true
+                        },
+                        "titleGenres": {
+                            "genres": [
+                                {
+                                    "genre": {
+                                        "text": "Action"
+                                    }
+                                },
+                                {
+                                    "genre": {
+                                        "text": "Drama"
+                                    }
+                                }
+                            ]
+                        },
+                        "canHaveEpisodes": false,
+                        "latestTrailer": {
+                            "id": "vi1531627033"
+                        }
+                    }
+                },
+                {
+                    "node": {
+                        "id": "tt0043306",
+                        "titleText": {
+                            "text": "Awaara"
+                        },
+                        "titleType": {
+                            "id": "movie",
+                            "text": "Movie",
+                            "canHaveEpisodes": false,
+                            "displayableProperty": {
+                                "value": {
+                                    "plainText": ""
+                                }
+                            }
+                        },
+                        "originalTitleText": {
+                            "text": "Awaara"
+                        },
+                        "primaryImage": {
+                            "id": "rm4227356160",
+                            "width": 495,
+                            "height": 768,
+                            "url": "https://m.media-amazon.com/images/M/MV5BNzEyODIwNmYtNDY5ZC00ZDBlLWExZjItODg1ZmE3YzFlYTJhXkEyXkFqcGc@._V1_.jpg",
+                            "caption": {
+                                "plainText": "Awaara (1951)"
+                            }
+                        },
+                        "releaseYear": {
+                            "year": 1951,
+                            "endYear": null
+                        },
+                        "ratingsSummary": {
+                            "aggregateRating": 7.8,
+                            "voteCount": 4636
+                        },
+                        "runtime": {
+                            "seconds": 11580
+                        },
+                        "certificate": null,
+                        "canRate": {
+                            "isRatable": true
+                        },
+                        "titleGenres": {
+                            "genres": [
+                                {
+                                    "genre": {
+                                        "text": "Drama"
+                                    }
+                                },
+                                {
+                                    "genre": {
+                                        "text": "Musical"
+                                    }
+                                },
+                                {
+                                    "genre": {
+                                        "text": "Romance"
+                                    }
+                                }
+                            ]
+                        },
+                        "canHaveEpisodes": false,
+                        "latestTrailer": {
+                            "id": "vi2000600857"
+                        }
+                    }
+                },
+                {
+                    "node": {
+                        "id": "tt29623480",
+                        "titleText": {
+                            "text": "The Wild Robot"
+                        },
+                        "titleType": {
+                            "id": "movie",
+                            "text": "Movie",
+                            "canHaveEpisodes": false,
+                            "displayableProperty": {
+                                "value": {
+                                    "plainText": ""
+                                }
+                            }
+                        },
+                        "originalTitleText": {
+                            "text": "The Wild Robot"
+                        },
+                        "primaryImage": {
+                            "id": "rm4175327489",
+                            "width": 3158,
+                            "height": 5000,
+                            "url": "https://m.media-amazon.com/images/M/MV5BZjM2M2E3YzAtZDJjYy00MDhkLThiYmItOGZhNzQ3NTgyZmI0XkEyXkFqcGc@._V1_.jpg",
+                            "caption": {
+                                "plainText": "Pedro Pascal, Boone Storm, and Lupita Nyong'o in The Wild Robot (2024)"
+                            }
+                        },
+                        "releaseYear": {
+                            "year": 2024,
+                            "endYear": null
+                        },
+                        "ratingsSummary": {
+                            "aggregateRating": 8.3,
+                            "voteCount": 96194
+                        },
+                        "runtime": {
+                            "seconds": 6120
+                        },
+                        "certificate": {
+                            "rating": "PG"
+                        },
+                        "canRate": {
+                            "isRatable": true
+                        },
+                        "titleGenres": {
+                            "genres": [
+                                {
+                                    "genre": {
+                                        "text": "Animation"
+                                    }
+                                },
+                                {
+                                    "genre": {
+                                        "text": "Sci-Fi"
+                                    }
+                                }
+                            ]
+                        },
+                        "canHaveEpisodes": false,
+                        "latestTrailer": {
+                            "id": "vi1164822041"
+                        }
+                    }
+                },
+                {
+                    "node": {
+                        "id": "tt27118357",
+                        "titleText": {
+                            "text": "Amaran"
+                        },
+                        "titleType": {
+                            "id": "movie",
+                            "text": "Movie",
+                            "canHaveEpisodes": false,
+                            "displayableProperty": {
+                                "value": {
+                                    "plainText": ""
+                                }
+                            }
+                        },
+                        "originalTitleText": {
+                            "text": "Amaran"
+                        },
+                        "primaryImage": {
+                            "id": "rm1417101313",
+                            "width": 2520,
+                            "height": 3937,
+                            "url": "https://m.media-amazon.com/images/M/MV5BNTAzMGQ2MGItMjk5OC00YWIwLThmMjUtYmNjMTIxNzVlZWQ4XkEyXkFqcGc@._V1_.jpg",
+                            "caption": {
+                                "plainText": "Kamal Haasan, G.V. Prakash Kumar, Sivakarthikeyan, R.Mahendran, and Rajkumar Periasamy in Amaran (2024)"
+                            }
+                        },
+                        "releaseYear": {
+                            "year": 2024,
+                            "endYear": null
+                        },
+                        "ratingsSummary": {
+                            "aggregateRating": 8.3,
+                            "voteCount": 12603
+                        },
+                        "runtime": {
+                            "seconds": 10020
+                        },
+                        "certificate": null,
+                        "canRate": {
+                            "isRatable": true
+                        },
+                        "titleGenres": {
+                            "genres": [
+                                {
+                                    "genre": {
+                                        "text": "Action"
+                                    }
+                                },
+                                {
+                                    "genre": {
+                                        "text": "Biography"
+                                    }
+                                },
+                                {
+                                    "genre": {
+                                        "text": "Drama"
+                                    }
+                                }
+                            ]
+                        },
+                        "canHaveEpisodes": false,
+                        "latestTrailer": {
+                            "id": "vi4186294553"
+                        }
+                    }
+                },
+                {
+                    "node": {
+                        "id": "tt0112459",
+                        "titleText": {
+                            "text": "Barsaat"
+                        },
+                        "titleType": {
+                            "id": "movie",
+                            "text": "Movie",
+                            "canHaveEpisodes": false,
+                            "displayableProperty": {
+                                "value": {
+                                    "plainText": ""
+                                }
+                            }
+                        },
+                        "originalTitleText": {
+                            "text": "Barsaat"
+                        },
+                        "primaryImage": {
+                            "id": "rm887984385",
+                            "width": 1141,
+                            "height": 1500,
+                            "url": "https://m.media-amazon.com/images/M/MV5BYzNiNzI4MTUtMzhmNC00ZGVkLTk0ZDktM2FkM2QzYzEzOTViXkEyXkFqcGc@._V1_.jpg",
+                            "caption": {
+                                "plainText": "Twinkle Khanna and Bobby Deol in Barsaat (1995)"
+                            }
+                        },
+                        "releaseYear": {
+                            "year": 1995,
+                            "endYear": null
+                        },
+                        "ratingsSummary": {
+                            "aggregateRating": 5.6,
+                            "voteCount": 1451
+                        },
+                        "runtime": {
+                            "seconds": 9960
+                        },
+                        "certificate": {
+                            "rating": "Not Rated"
+                        },
+                        "canRate": {
+                            "isRatable": true
+                        },
+                        "titleGenres": {
+                            "genres": [
+                                {
+                                    "genre": {
+                                        "text": "Action"
+                                    }
+                                },
+                                {
+                                    "genre": {
+                                        "text": "Romance"
+                                    }
+                                }
+                            ]
+                        },
+                        "canHaveEpisodes": false,
+                        "latestTrailer": null
+                    }
+                },
+                {
+                    "node": {
+                        "id": "tt7510222",
+                        "titleText": {
+                            "text": "Despicable Me 4"
+                        },
+                        "titleType": {
+                            "id": "movie",
+                            "text": "Movie",
+                            "canHaveEpisodes": false,
+                            "displayableProperty": {
+                                "value": {
+                                    "plainText": ""
+                                }
+                            }
+                        },
+                        "originalTitleText": {
+                            "text": "Despicable Me 4"
+                        },
+                        "primaryImage": {
+                            "id": "rm1310030849",
+                            "width": 1000,
+                            "height": 1500,
+                            "url": "https://m.media-amazon.com/images/M/MV5BNzY0ZTlhYzgtOTgzZC00ZTg2LTk4NTEtZDllM2E2NGE5Njg2XkEyXkFqcGc@._V1_.jpg",
+                            "caption": {
+                                "plainText": "Steve Carell and Pierre Coffin in Despicable Me 4 (2024)"
+                            }
+                        },
+                        "releaseYear": {
+                            "year": 2024,
+                            "endYear": null
+                        },
+                        "ratingsSummary": {
+                            "aggregateRating": 6.2,
+                            "voteCount": 53262
+                        },
+                        "runtime": {
+                            "seconds": 5640
+                        },
+                        "certificate": {
+                            "rating": "PG"
+                        },
+                        "canRate": {
+                            "isRatable": true
+                        },
+                        "titleGenres": {
+                            "genres": [
+                                {
+                                    "genre": {
+                                        "text": "Animation"
+                                    }
+                                },
+                                {
+                                    "genre": {
+                                        "text": "Adventure"
+                                    }
+                                },
+                                {
+                                    "genre": {
+                                        "text": "Comedy"
+                                    }
+                                }
+                            ]
+                        },
+                        "canHaveEpisodes": false,
+                        "latestTrailer": {
+                            "id": "vi2096088601"
+                        }
+                    }
+                },
+                {
+                    "node": {
+                        "id": "tt32086077",
+                        "titleText": {
+                            "text": "All We Imagine as Light"
+                        },
+                        "titleType": {
+                            "id": "movie",
+                            "text": "Movie",
+                            "canHaveEpisodes": false,
+                            "displayableProperty": {
+                                "value": {
+                                    "plainText": ""
+                                }
+                            }
+                        },
+                        "originalTitleText": {
+                            "text": "All We Imagine as Light"
+                        },
+                        "primaryImage": {
+                            "id": "rm2710010881",
+                            "width": 2897,
+                            "height": 4096,
+                            "url": "https://m.media-amazon.com/images/M/MV5BNzg5OWVkODQtNDViMS00YmFkLTg4YjctMGFmZjM4OTdlYWRhXkEyXkFqcGc@._V1_.jpg",
+                            "caption": {
+                                "plainText": "Kani Kusruti in All We Imagine as Light (2024)"
+                            }
+                        },
+                        "releaseYear": {
+                            "year": 2024,
+                            "endYear": null
+                        },
+                        "ratingsSummary": {
+                            "aggregateRating": 7.4,
+                            "voteCount": 2250
+                        },
+                        "runtime": {
+                            "seconds": 7080
+                        },
+                        "certificate": {
+                            "rating": "Unrated"
+                        },
+                        "canRate": {
+                            "isRatable": true
+                        },
+                        "titleGenres": {
+                            "genres": [
+                                {
+                                    "genre": {
+                                        "text": "Drama"
+                                    }
+                                },
+                                {
+                                    "genre": {
+                                        "text": "Romance"
+                                    }
+                                }
+                            ]
+                        },
+                        "canHaveEpisodes": false,
+                        "latestTrailer": {
+                            "id": "vi2050147865"
+                        }
+                    }
+                },
+                {
+                    "node": {
+                        "id": "tt25434834",
+                        "titleText": {
+                            "text": "Viduthalai Part 2"
+                        },
+                        "titleType": {
+                            "id": "movie",
+                            "text": "Movie",
+                            "canHaveEpisodes": false,
+                            "displayableProperty": {
+                                "value": {
+                                    "plainText": ""
+                                }
+                            }
+                        },
+                        "originalTitleText": {
+                            "text": "Viduthalai Part 2"
+                        },
+                        "primaryImage": {
+                            "id": "rm189232385",
+                            "width": 1310,
+                            "height": 2048,
+                            "url": "https://m.media-amazon.com/images/M/MV5BMGM4ZDZlMDctYTkwNS00YTc1LWExODgtMjhkZDk0ZGQyNzZjXkEyXkFqcGc@._V1_.jpg",
+                            "caption": {
+                                "plainText": "Viduthalai Part 2 (2024)"
+                            }
+                        },
+                        "releaseYear": {
+                            "year": 2024,
+                            "endYear": null
+                        },
+                        "ratingsSummary": {
+                            "aggregateRating": 8.4,
+                            "voteCount": 221
+                        },
+                        "runtime": {
+                            "seconds": 9000
+                        },
+                        "certificate": null,
+                        "canRate": {
+                            "isRatable": true
+                        },
+                        "titleGenres": {
+                            "genres": [
+                                {
+                                    "genre": {
+                                        "text": "Action"
+                                    }
+                                },
+                                {
+                                    "genre": {
+                                        "text": "Crime"
+                                    }
+                                },
+                                {
+                                    "genre": {
+                                        "text": "Drama"
+                                    }
+                                }
+                            ]
+                        },
+                        "canHaveEpisodes": false,
+                        "latestTrailer": {
+                            "id": "vi797034777"
+                        }
+                    }
+                },
+                {
+                    "node": {
+                        "id": "tt27540542",
+                        "titleText": {
+                            "text": "Lucky Baskhar"
+                        },
+                        "titleType": {
+                            "id": "movie",
+                            "text": "Movie",
+                            "canHaveEpisodes": false,
+                            "displayableProperty": {
+                                "value": {
+                                    "plainText": ""
+                                }
+                            }
+                        },
+                        "originalTitleText": {
+                            "text": "Lucky Baskhar"
+                        },
+                        "primaryImage": {
+                            "id": "rm3838395137",
+                            "width": 2622,
+                            "height": 4096,
+                            "url": "https://m.media-amazon.com/images/M/MV5BMjEzN2ZjYjUtZTI3NC00MzMyLWJiNDAtMDBiZGEzNTBiY2RkXkEyXkFqcGc@._V1_.jpg",
+                            "caption": {
+                                "plainText": "Lucky Baskhar (2024)"
+                            }
+                        },
+                        "releaseYear": {
+                            "year": 2024,
+                            "endYear": null
+                        },
+                        "ratingsSummary": {
+                            "aggregateRating": 8.1,
+                            "voteCount": 16284
+                        },
+                        "runtime": {
+                            "seconds": 10200
+                        },
+                        "certificate": null,
+                        "canRate": {
+                            "isRatable": true
+                        },
+                        "titleGenres": {
+                            "genres": [
+                                {
+                                    "genre": {
+                                        "text": "Crime"
+                                    }
+                                },
+                                {
+                                    "genre": {
+                                        "text": "Drama"
+                                    }
+                                },
+                                {
+                                    "genre": {
+                                        "text": "Thriller"
+                                    }
+                                }
+                            ]
+                        },
+                        "canHaveEpisodes": false,
+                        "latestTrailer": {
+                            "id": "vi2629421337"
+                        }
+                    }
+                },
+                {
+                    "node": {
+                        "id": "tt21692408",
+                        "titleText": {
+                            "text": "Kung Fu Panda 4"
+                        },
+                        "titleType": {
+                            "id": "movie",
+                            "text": "Movie",
+                            "canHaveEpisodes": false,
+                            "displayableProperty": {
+                                "value": {
+                                    "plainText": ""
+                                }
+                            }
+                        },
+                        "originalTitleText": {
+                            "text": "Kung Fu Panda 4"
+                        },
+                        "primaryImage": {
+                            "id": "rm3773712385",
+                            "width": 3158,
+                            "height": 5000,
+                            "url": "https://m.media-amazon.com/images/M/MV5BMzJlNGYxYzQtOTg4MC00OTMyLTkwYzMtZDRlNTgwY2YwOWYxXkEyXkFqcGc@._V1_.jpg",
+                            "caption": {
+                                "plainText": "Dustin Hoffman, Jack Black, Bryan Cranston, Viola Davis, James Hong, Ian McShane, Cece Valentina, Lincoln Nakamura, and Awkwafina in Kung Fu Panda 4 (2024)"
+                            }
+                        },
+                        "releaseYear": {
+                            "year": 2024,
+                            "endYear": null
+                        },
+                        "ratingsSummary": {
+                            "aggregateRating": 6.3,
+                            "voteCount": 60792
+                        },
+                        "runtime": {
+                            "seconds": 5640
+                        },
+                        "certificate": {
+                            "rating": "PG"
+                        },
+                        "canRate": {
+                            "isRatable": true
+                        },
+                        "titleGenres": {
+                            "genres": [
+                                {
+                                    "genre": {
+                                        "text": "Animation"
+                                    }
+                                },
+                                {
+                                    "genre": {
+                                        "text": "Action"
+                                    }
+                                },
+                                {
+                                    "genre": {
+                                        "text": "Adventure"
+                                    }
+                                }
+                            ]
+                        },
+                        "canHaveEpisodes": false,
+                        "latestTrailer": {
+                            "id": "vi4087399961"
+                        }
+                    }
+                },
+                {
+                    "node": {
+                        "id": "tt0053965",
+                        "titleText": {
+                            "text": "Jis Desh Men Ganga Behti Hai"
+                        },
+                        "titleType": {
+                            "id": "movie",
+                            "text": "Movie",
+                            "canHaveEpisodes": false,
+                            "displayableProperty": {
+                                "value": {
+                                    "plainText": ""
+                                }
+                            }
+                        },
+                        "originalTitleText": {
+                            "text": "Jis Desh Men Ganga Behti Hai"
+                        },
+                        "primaryImage": {
+                            "id": "rm819930625",
+                            "width": 1810,
+                            "height": 2420,
+                            "url": "https://m.media-amazon.com/images/M/MV5BNTFmYWVkZWMtOGJiZi00ZDViLThkNGYtNzA3NDZiOTBmNmI0XkEyXkFqcGc@._V1_.jpg",
+                            "caption": {
+                                "plainText": "Raj Kapoor, Padmini, and Pran Sikand in Jis Desh Men Ganga Behti Hai (1960)"
+                            }
+                        },
+                        "releaseYear": {
+                            "year": 1960,
+                            "endYear": null
+                        },
+                        "ratingsSummary": {
+                            "aggregateRating": 7.1,
+                            "voteCount": 516
+                        },
+                        "runtime": {
+                            "seconds": 10020
+                        },
+                        "certificate": null,
+                        "canRate": {
+                            "isRatable": true
+                        },
+                        "titleGenres": {
+                            "genres": [
+                                {
+                                    "genre": {
+                                        "text": "Drama"
+                                    }
+                                },
+                                {
+                                    "genre": {
+                                        "text": "Musical"
+                                    }
+                                },
+                                {
+                                    "genre": {
+                                        "text": "Romance"
+                                    }
+                                }
+                            ]
+                        },
+                        "canHaveEpisodes": false,
+                        "latestTrailer": null
+                    }
+                }
+            ]
+        }
+    },
+    "extensions": {
+        "disclaimer": "Public, commercial, and/or non-private use of the IMDb data provided by this API is not allowed. For limited non-commercial use of IMDb data and the associated requirements see https://help.imdb.com/article/imdb/general-information/can-i-use-imdb-data-in-my-software/G5JTRESSHJBBHTGX#",
+        "experimentalFields": {
+            "titleAppointments": [],
+            "markdown": []
+        }
+    }
+}

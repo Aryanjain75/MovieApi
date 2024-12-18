@@ -82,7 +82,7 @@ router.get("/upload", async (req, res) => {
         const val = [];
         let vol=[];
         for (const v of moviedata.data.showtimesTitles.edges) {
-            const tags = v.node.titleGenres.genres.map((genre) => genre.genre.text);
+            const tags = v?.node?.titleGenres?.genres?.map((genre) => genre.genre.text);
 
             const newMovie = {
                 id: v.node.id,

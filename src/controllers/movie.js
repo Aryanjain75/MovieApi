@@ -86,20 +86,20 @@ router.get("/upload", async (req, res) => {
 
             const newMovie = {
                 id: v.node.id,
-                title: v.node.titleText.text,
-                movieImage: v.node.primaryImage.url,
-                imageCaption: v.node.primaryImage.caption.plainText,
-                releaseYear: v.node.releaseYear,
-                ratingsSummary: v.node.ratingsSummary,
-                runtime: v.node.runtime,
-                certificate: v.node.certificate,
+                title: v?.node?.titleText?.text,
+                movieImage: v?.node?.primaryImage?.url,
+                imageCaption: v?.node?.primaryImage?.caption?.plainText,
+                releaseYear: v?.node?.releaseYear,
+                ratingsSummary: v?.node?.ratingsSummary,
+                runtime: v?.node?.runtime,
+                certificate: v?.node?.certificate,
                 tags,
-                latestTrailer: v.node.latestTrailer,
+                latestTrailer: v?.node?.latestTrailer,
                 reviews: [],
                 reviewstars: 0,
             };
 
-            const movieDocRef = doc(moviesCollection, v.node.id.toString());
+            const movieDocRef = doc(moviesCollection, v?.node?.id?.toString());
             const movieDocSnap = await getDoc(movieDocRef);
 
             if (movieDocSnap.exists()) {

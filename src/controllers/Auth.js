@@ -3,16 +3,8 @@ const Router = express.Router();
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 const dotenv = require("dotenv");
-const {
-  db,
-  collection,
-  doc,
-  setDoc,
-  getDoc,
-  updateDoc,
-  deleteDoc,
-} = require("firebase/firestore");
-
+const { db } = require("../firebase"); 
+const { collection, doc, setDoc, getDoc, updateDoc, deleteDoc, getDocs } = require("firebase/firestore");
 dotenv.config();
 
 const usersCollection = collection(db, "Users");

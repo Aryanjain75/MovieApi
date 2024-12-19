@@ -14,7 +14,7 @@ app.use(cors({
 const PORT = process.env.PORT || 3000;
 app.use("/", router);
 app.use("/in",Router);
-app.use("/auth",Route)
+// app.use("/auth",Route)
 app.listen(PORT, (err) => {
     if (err) {
         console.error("Error starting server:", err);

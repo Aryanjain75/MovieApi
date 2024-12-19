@@ -1,0 +1,32 @@
+# Node.js dependencies
+/node_modules/
+
+# Build output (Babel transpiled files)
+/dist/
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Environment files
+.env
+
+# Babel configuration file (if you don't want it tracked)
+.babelrc
+babel.config.json
+
+# Coverage reports (if you're using a testing tool like Jest)
+coverage/
+
+# IDEs and editors (e.g., VS Code, WebStorm, etc.)
+.vscode/
+.idea/
+
+# Temporary files
+*.log
+*.swp

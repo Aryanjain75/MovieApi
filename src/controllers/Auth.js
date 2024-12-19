@@ -11,7 +11,7 @@ const {
   getDoc,
   updateDoc,
   deleteDoc,
-} = require("../firebase");
+} = require("firebase/firestore");
 
 dotenv.config();
 

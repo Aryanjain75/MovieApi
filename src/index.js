@@ -3,7 +3,7 @@ const cors = require("cors");
 const dotenv = require("dotenv");
 const router = require("./controllers/movie");
 const Router=require("./controllers/mivieid");
-const Route =require("./controllers/Auth");
+// const Route =require("./controllers/Auth");
 dotenv.config();
 const app = express();
 app.use(cors({

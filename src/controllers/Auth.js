@@ -1,21 +1,21 @@
-// const express = require("express");
-// const Router = express.Router();
-// const bcrypt = require("bcryptjs");
-// const jwt = require("jsonwebtoken");
-// const dotenv = require("dotenv");
-// const {
-//   db,
-//   collection,
-//   doc,
-//   setDoc,
-//   getDoc,
-//   updateDoc,
-//   deleteDoc,
-// } = require("firebase/firestore");
+const express = require("express");
+const Router = express.Router();
+const bcrypt = require("bcryptjs");
+const jwt = require("jsonwebtoken");
+const dotenv = require("dotenv");
+const {
+  db,
+  collection,
+  doc,
+  setDoc,
+  getDoc,
+  updateDoc,
+  deleteDoc,
+} = require("firebase/firestore");
 
-// dotenv.config();
+dotenv.config();
 
-// const usersCollection = collection(db, "Users");
+const usersCollection = collection(db, "Users");
 
 // // Middleware for authentication (Optional, if you want to use it for protected routes)
 // const authenticate = async (req, res, next) => {
@@ -148,4 +148,4 @@
 //   }
 // });
 
-// module.exports = Router;
+module.exports = Router;

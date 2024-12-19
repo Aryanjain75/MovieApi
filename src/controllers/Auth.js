@@ -11,7 +11,7 @@ const usersCollection = collection(db, "Users");
 
 // Middleware for authentication (Optional, if you want to use it for protected routes)
 const authenticate = async (req, res, next) => {
-  const token = req.?cookies?.token;
+  const token = req?.cookies?.token;
   if (!token) {
     return res.status(401).json({ message: "Unauthorized: No token provided" });
   }

@@ -145,7 +145,7 @@ Router.get("/getDetails", validateToken, async (req, res) => {
 // Logout route
 Router.post("/logout", async (req, res) => {
   try {
-    const token = req?.headers?.authorization?.split(" ")[1];
+    const {token} = req?.body;
     if (!token) {
       return res.status(400).json({ message: "No token provided" });
     }

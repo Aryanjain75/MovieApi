@@ -18,13 +18,13 @@ const usersCollection = () => collection(db, "Users");
 
 // Middleware for authentication
 const authenticate = async (req, res, next) => {
-  const token = req.cookies.token;
+  const token = req?.cookies?.token;
   if (!token) {
     return res.status(401).json({ message: "Unauthorized: No token provided" });
   }
   try {
     const decoded = jwt.verify(token, process.env.JWT_SECRET);
-    req.user = decoded;
+    req?.user = decoded;
     next();
   } catch (e) {
     res.status(403).json({ message: "Invalid token", error: e.message });
@@ -98,7 +98,7 @@ Router.post("/signup", async (req, res) => {
 // Forget Password route
 Router.put("/forgetPassword", async (req, res) => {
   try {
-    const { email, password } = req.body;
+    const { email, password } = req?.body;
     if (!email || !password) {
       return res.status(400).json({ message: "Please fill all the fields" });
     }
@@ -124,7 +124,7 @@ Router.put("/forgetPassword", async (req, res) => {
 // Get user details route
 Router.get("/getDetails", authenticate, async (req, res) => {
   try {
-    const userDocRef = doc(usersCollection(), req.user.id);
+    const userDocRef = doc(usersCollection(), req?.user?.id);
     const userDocSnap = await getDoc(userDocRef);
     if (!userDocSnap.exists()) {
       return res.status(404).json({ message: "User not found" });

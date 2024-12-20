@@ -9,7 +9,7 @@ const cookieParser = require("cookie-parser");
 dotenv.config();
 
 const app = express();
-
+app.use(express.json());
 // CORS Middleware
 app.use(cors({
   origin: "*", 

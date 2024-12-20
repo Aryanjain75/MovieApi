@@ -55,9 +55,7 @@ Router.post("/login", async (req, res) => {
       .status(200)
       .cookie("token", token, {
         httpOnly: true,
-        secure: true,
-        sameSite: "lax",
-        expires: new Date(Date.now() + 24 * 60 * 60 * 1000),
+        maxAge: 360000,
       })
       .json({ message: "Login successful", data: user, token });
   } catch (e) {

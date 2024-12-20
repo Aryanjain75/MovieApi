@@ -7,13 +7,19 @@ const moviesCollection = collection(db, "movies");
 Router.put("/givrreview/:id",async(req,res)=>{
     try {
         const { id } = req.params;
-        const { review, stars } = req.body;
+        const { name,email,review, stars } = req.body;
         const movieDocRef = doc(moviesCollection, id);
         const movieDocSnap = await getDoc(movieDocRef);
         if (!movieDocSnap.exists()) {
             return res.status(404).json({ message: "Movie not found" });
         }
         const movieData = movieDocSnap.data();
+        const data={
+            name:name,
+            email:email,
+            review:review,
+            stars:stars
+        }
         const updatedReviews = [...movieData.reviews, review];
         const updatedStars = (movieData.reviewstars*5 + stars)/5;
         const updatedMovie = {

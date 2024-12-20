@@ -20,6 +20,8 @@ const tokensCollection = () => collection(db, "Tokens"); // For storing tokens
 // Middleware for authentication
 const authenticate = async (req, res, next) => {
   const token = req?.headers?.authorization?.split(" ")[1]; // Extract token from header
+  console.log(token);
+  console.log(req?.headers);
   if (!token) {
     return res.status(401).json({ message: "Unauthorized: No token provided" });
   }

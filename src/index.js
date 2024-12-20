@@ -15,17 +15,8 @@ app.use(express.json());
 const allowedOrigins = process.env.ORIGINS||["http://localhost:5174"];
 
 // CORS Middleware
-app.use(cors({
-  origin: function (origin, callback) {
-    // Allow requests with no origin (e.g., mobile apps, Postman)
-    if (!origin || allowedOrigins.includes(origin)) {
-      callback(null, true);
-    } else {
-      callback(new Error("Not allowed by CORS"));
-    }
-  },
-  methods: ["GET", "POST", "PUT", "DELETE", "PATCH"],
-  credentials: true, // Allow credentials
+app.use(cors({ origin: 'http://localhost:5173', // replace with your client origin
+  credentials: true
 }));
 
 // Middleware for parsing JSON and URL-encoded bodies

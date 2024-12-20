@@ -11,13 +11,13 @@ dotenv.config();
 const app = express();
 app.use(express.json());
 
-// Define allowed origins
-// const allowedOrigins = process.env.ORIGINS||["http://localhost:5174","http://localhost:5173/"];
+Define allowed origins
+const allowedOrigins = process.env.ORIGINS||["http://localhost:5174","http://localhost:5173/"];
 
-// // CORS Middleware
-// app.use(cors({ origin: 'http://localhost:5173', // replace with your client origin
-//   credentials: true
-// }));
+// CORS Middleware
+app.use(cors({ origin: 'http://localhost:5173', // replace with your client origin
+  credentials: true
+}));
 
 // Middleware for parsing JSON and URL-encoded bodies
 app.use(express.urlencoded({ extended: true }));

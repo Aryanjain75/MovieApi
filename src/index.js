@@ -15,7 +15,7 @@ app.use(express.json());
 const allowedOrigins = process.env.ORIGINS||["http://localhost:5174"];
 
 // CORS Middleware
-app.use(cors({ origin: 'http://localhost:5173', // replace with your client origin
+app.use(cors({ origin: 'http://localhost:5174', // replace with your client origin
   credentials: true
 }));
 

@@ -5,40 +5,39 @@ const jwt = require("jsonwebtoken");
 const dotenv = require("dotenv");
 const { db } = require("../firebase");
 const {
-  collection,
-  doc,
-  setDoc,
-  getDoc,
-  updateDoc,
-} = require("firebase/firestore");
+  collection,doc,setDoc,getDoc,updateDoc,} = require("firebase/firestore");
 
 dotenv.config();
 
 const usersCollection = () => collection(db, "Users");
 const tokensCollection = () => collection(db, "Tokens"); // For storing tokens
 
-// Middleware for authentication
-const authenticate = async (req, res, next) => {
-  const token = req?.body?.token || req?.headers?.authorization?.split(" ")[1];    
-  console.log(token);
-  console.log(req?.headers);
-  if (!token) {
-    return res.status(401).json({ message: "Unauthorized: No token provided" });
-  }
+
+const validateToken = async (req, res, next) => {
   try {
+    const token = req.query.token; // Get token from query params
+    if (!token) {
+      return res.status(401).json({ message: "Unauthorized: No token provided" });
+    }
+
+    // Verify the JWT token
     const decoded = jwt.verify(token, process.env.JWT_SECRET);
+
+    // Check if token exists in the Firestore database
     const tokenDocRef = doc(tokensCollection(), decoded.id);
     const tokenDocSnap = await getDoc(tokenDocRef);
+
     if (!tokenDocSnap.exists() || tokenDocSnap.data().token !== token) {
       return res.status(403).json({ message: "Invalid or expired token" });
     }
-    req.user = decoded;
-    next();
-  } catch (e) {
-    res.status(403).json({ message: "Invalid token", error: e.message });
+
+    // Attach user data to request object
+    req.user = { id: decoded.id, name: tokenDocSnap.data().name };
+    next(); // Pass control to the next middleware or route handler
+  } catch (err) {
+    res.status(403).json({ message: "Invalid token", error: err.message });
   }
 };
-
 // Login route
 Router.post("/login", async (req, res) => {
   try {
@@ -124,23 +123,25 @@ Router.put("/forgetPassword", async (req, res) => {
   }
 });
 
-// Get user details route
-Router.get("/getDetails", authenticate, async (req, res) => {
+
+Router.get("/getDetails", validateToken, async (req, res) => {
   try {
-    const userDocRef = doc(usersCollection(), req?.user?.id);
+    // Access user data attached by middleware
+    const userId = req.user.id;
+
+    // Fetch user details
+    const userDocRef = doc(usersCollection(), userId);
     const userDocSnap = await getDoc(userDocRef);
+
     if (!userDocSnap.exists()) {
       return res.status(404).json({ message: "User not found" });
     }
-    const user = userDocSnap.data();
-    res.status(200).json({ message: "User details retrieved", data: user });
-  } catch (e) {
-    res
-      .status(500)
-      .json({ error: e.message, message: "Server down, Authentication failed" });
+
+    res.status(200).json({ message: "User details retrieved", data: userDocSnap.data() });
+  } catch (error) {
+    res.status(500).json({ message: "An error occurred", error: error.message });
   }
 });
-
 // Logout route
 Router.post("/logout", async (req, res) => {
   try {

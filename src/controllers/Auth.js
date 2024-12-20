@@ -58,7 +58,7 @@ Router.post("/login", async (req, res) => {
       expiresIn: "1d",
     });
     await setDoc(doc(tokensCollection(), email), { token, createdAt: new Date() });
-    res.status(200).json({ message: "Login successful", data: user, token });
+    res.status(200).setHeader("authorization",token).json({ message: "Login successful", data: user, token });
   } catch (e) {
     res
       .status(500)

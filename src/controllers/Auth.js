@@ -15,15 +15,21 @@ const {
 dotenv.config();
 
 const usersCollection = () => collection(db, "Users");
+const tokensCollection = () => collection(db, "Tokens"); // For storing tokens
 
 // Middleware for authentication
 const authenticate = async (req, res, next) => {
-  const token = req?.cookies?.token;
+  const token = req?.headers?.authorization?.split(" ")[1]; // Extract token from header
   if (!token) {
     return res.status(401).json({ message: "Unauthorized: No token provided" });
   }
   try {
     const decoded = jwt.verify(token, process.env.JWT_SECRET);
+    const tokenDocRef = doc(tokensCollection(), decoded.id);
+    const tokenDocSnap = await getDoc(tokenDocRef);
+    if (!tokenDocSnap.exists() || tokenDocSnap.data().token !== token) {
+      return res.status(403).json({ message: "Invalid or expired token" });
+    }
     req.user = decoded;
     next();
   } catch (e) {
@@ -51,13 +57,8 @@ Router.post("/login", async (req, res) => {
     const token = jwt.sign({ id: email }, process.env.JWT_SECRET, {
       expiresIn: "1d",
     });
-    res
-      .status(200)
-      .cookie("token", token, {
-        httpOnly: true,
-        maxAge: 360000,
-      })
-      .json({ message: "Login successful", data: user, token });
+    await setDoc(doc(tokensCollection(), email), { token, createdAt: new Date() });
+    res.status(200).json({ message: "Login successful", data: user, token });
   } catch (e) {
     res
       .status(500)
@@ -139,9 +140,16 @@ Router.get("/getDetails", authenticate, async (req, res) => {
 });
 
 // Logout route
-Router.post("/logout", (req, res) => {
+Router.post("/logout", async (req, res) => {
   try {
-    res.clearCookie("token").status(200).json({ message: "Logout successful" });
+    const token = req?.headers?.authorization?.split(" ")[1];
+    if (!token) {
+      return res.status(400).json({ message: "No token provided" });
+    }
+    const decoded = jwt.verify(token, process.env.JWT_SECRET);
+    const tokenDocRef = doc(tokensCollection(), decoded.id);
+    await setDoc(tokenDocRef, { token: null }); // Invalidate token
+    res.status(200).json({ message: "Logout successful" });
   } catch (e) {
     res.status(500).json({ error: e.message, message: "Logout failed" });
   }

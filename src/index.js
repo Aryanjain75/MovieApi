@@ -11,7 +11,6 @@ dotenv.config();
 const app = express();
 app.use(express.json());
 
-Define allowed origins
 const allowedOrigins = process.env.ORIGINS||["http://localhost:5174","http://localhost:5173/"];
 
 // CORS Middleware

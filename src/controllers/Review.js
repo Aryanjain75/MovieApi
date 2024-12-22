@@ -36,6 +36,21 @@ Router.post("/reviews", async (req, res) => {
     res.status(500).json({ error: e.message, message: "Server down" });
   }
 });
+Router.post("/reviewsarray", async (req, res) => {
+    try {
+      const reviewData = req.body;
+      const data=[];
+      reviewData.forEach(async (review) => {
+        const newReviewRef = doc(ReviewsCollection);
+        await setDoc(newReviewRef, review);
+        data.push({ReviewId:newReviewRef.id,"Success":true});
+      });
+      res.status(201).json(data);
+    } catch (e) {
+      console.error("Error creating review:", e);
+      res.status(500).json({ error: e.message, message: "Server down" });
+    }
+  });
 Router.put("/reviews/:id/:Movieid", async (req, res) => {
   try {
     const { id, Movieid } = req.params;

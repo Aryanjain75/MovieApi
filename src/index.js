@@ -5,7 +5,7 @@ const movieRouter = require("./controllers/movie");
 const movieIdRouter = require("./controllers/mivieid");
 const authRouter = require("./controllers/Auth");
 const cookieParser = require("cookie-parser");
-
+const ReviewRouter=require("./controllers/Review");
 dotenv.config();
 
 const app = express();
@@ -28,6 +28,7 @@ app.use(cookieParser());
 app.use("/", movieRouter);
 app.use("/in", movieIdRouter);
 app.use("/auth", authRouter);
+app.use("/Review", ReviewRouter);
 
 // Set the port from environment or default to 3000
 const PORT = process.env.PORT || 3000;

@@ -95,14 +95,14 @@ Router.delete("/reviews/:id/:Movieid", async (req, res) => {
 Router.get("/review/:id", async (req, res) => {
   try {
     const { id } = req.params;
-    const reviewRef = query(ReviewsCollection, where("movieId","==",id));
-    const reviewDoc = await getDocs(reviewRef);
-    
-     if (reviewDoc.empty) {
+    const reviewRef = query(ReviewsCollection, where("movieId", "==", id));
+    const reviewSnapshot = await getDocs(reviewRef);
+
+    if (reviewSnapshot.empty) {
       return res.status(404).json({ message: "Review not found" });
     }
 
-
+    const reviewDoc = reviewSnapshot.docs[0]; // Assuming only one document is returned
     res.status(200).json({
       message: "Review fetched successfully",
       data: {

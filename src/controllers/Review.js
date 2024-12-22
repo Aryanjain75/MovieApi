@@ -2,7 +2,7 @@ const express = require('express');
 const app = express();
 const Router=express.Router();
 const { db } = require("../firebase"); 
-const { collection, doc, setDoc, getDoc, updateDoc, deleteDoc, getDocs } = require("firebase/firestore");
+const { collection, doc, setDoc, getDoc, updateDoc, deleteDoc, getDocs ,query,where} = require("firebase/firestore");
 const ReviewsCollection = collection(db, "reviews");
 Router.get("/reviews/:id", async (req, res) => {
     try {
@@ -37,17 +37,23 @@ Router.post("/reviews", async (req, res) => {
     res.status(500).json({ error: e.message, message: "Server down" });
   }
 });
-
-// Update a review
-Router.put("/reviews/:id", async (req, res) => {
+Router.put("/reviews/:id/:Movieid", async (req, res) => {
   try {
-    const { id } = req.params;
+    const { id, Movieid } = req.params;
     const updateData = req.body;
-    const reviewRef = doc(ReviewsCollection, id);
-    await updateDoc(reviewRef, updateData);
-    res.status(200).json({
-      message: "Review updated successfully"
-    });
+    const reviewsQuery = query(
+      ReviewsCollection,
+      where("id", "==", id),
+      where("Movieid", "==", Movieid)
+    );
+    const querySnapshot = await getDocs(reviewsQuery);
+    if (querySnapshot.empty) {
+      return res.status(404).json({ message: "Review not found" });
+    }
+    const reviewDocRef = querySnapshot.docs[0].ref;
+    await updateDoc(reviewDocRef, updateData);
+
+    res.status(200).json({ message: "Review updated successfully" });
   } catch (e) {
     console.error("Error updating review:", e);
     res.status(500).json({ error: e.message, message: "Server down" });
@@ -55,10 +61,12 @@ Router.put("/reviews/:id", async (req, res) => {
 });
 
 // Delete a review
-Router.delete("/reviews/:id", async (req, res) => {
+Router.delete("/reviews/:id/:Movieid", async (req, res) => {
   try {
-    const { id } = req.params;
-    const reviewRef = doc(ReviewsCollection, id);
+    const { id,Movieid } = req.params;
+    const reviewRef = query(ReviewsCollection,
+                            where("id", "==", id),
+                            where("Movieid", "==", Movieid));
     await deleteDoc(reviewRef);
     res.status(200).json({
       message: "Review deleted successfully"

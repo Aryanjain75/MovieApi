@@ -3,7 +3,7 @@ const app = express();
 const Router=express.Router();
 const { db } = require("../firebase"); 
 const { collection, doc, setDoc, getDoc, updateDoc, deleteDoc, getDocs } = require("firebase/firestore");
-const ReviewsCollection = collection(firestore, "reviews");
+const ReviewsCollection = collection(db, "reviews");
 Router.get("/reviews/:id", async (req, res) => {
     try {
         const { id } = req.params; // Movie ID from the request parameters

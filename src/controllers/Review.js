@@ -43,7 +43,7 @@ Router.put("/reviews/:id/:Movieid", async (req, res) => {
     const reviewsQuery = query(
       ReviewsCollection,
       where("id", "==", id),
-      where("Movieid", "==", Movieid)
+      where("movieId", "==", Movieid)
     );
     const querySnapshot = await getDocs(reviewsQuery);
     if (querySnapshot.empty) {

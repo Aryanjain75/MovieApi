@@ -45,7 +45,7 @@ Router.post("/reviewsarray", async (req, res) => {
         await setDoc(newReviewRef, review);
         data.push({ReviewId:newReviewRef.id,"Success":true});
       });
-      res.status(201).json(data);
+      res.status(201).json({data:data,givenmovieData:reviewData});
     } catch (e) {
       console.error("Error creating review:", e);
       res.status(500).json({ error: e.message, message: "Server down" });

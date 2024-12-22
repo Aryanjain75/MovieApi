@@ -13,11 +13,11 @@ app.use(express.json());
 
 const allowedOrigins = process.env.ORIGINS||["http://localhost:5174","http://localhost:5173/"];
 
-// CORS Middleware
-app.use(cors({ origin: 'http://localhost:5173', // replace with your client origin
-  credentials: true
+app.use(cors({
+    origin: 'http://localhost:5173', // Specifies the allowed origin
+    methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'], // Lists allowed HTTP methods
+    credentials: true // Allows credentials (e.g., cookies, authorization headers)
 }));
-
 // Middleware for parsing JSON and URL-encoded bodies
 app.use(express.urlencoded({ extended: true }));
 

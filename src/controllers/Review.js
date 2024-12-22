@@ -4,10 +4,10 @@ const Router=express.Router();
 const { db } = require("../firebase"); 
 const { collection, doc, setDoc, getDoc, updateDoc, deleteDoc, getDocs ,query,where} = require("firebase/firestore");
 const ReviewsCollection = collection(db, "reviews");
-Router.get("/reviews/:id", async (req, res) => {
+Router.get("/reviews/:id/:email", async (req, res) => {
     try {
-        const { id } = req.params; // Movie ID from the request parameters
-        const reviewsQuery = query(ReviewsCollection, where("movieid", "==", id));
+        const { id,email } = req.params; // Movie ID from the request parameters
+        const reviewsQuery = query(ReviewsCollection, where("movieid", "==", id),where("email","==",email));
         const querySnapshot = await getDocs(reviewsQuery);
         const reviews = querySnapshot.docs.map(doc => ({
             id: doc.id,

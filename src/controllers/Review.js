@@ -98,7 +98,7 @@ Router.get("/review/:id", async (req, res) => {
     const reviewRef = query(ReviewsCollection, where("movieId","==",id));
     const reviewDoc = await getDocs(reviewRef);
     
-     if (reviewSnapshot.empty) {
+     if (reviewDoc.empty) {
       return res.status(404).json({ message: "Review not found" });
     }
 

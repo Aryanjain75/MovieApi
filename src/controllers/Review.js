@@ -65,7 +65,7 @@ Router.delete("/reviews/:id/:Movieid", async (req, res) => {
     const { id,Movieid } = req.params;
     const reviewRef = query(ReviewsCollection,
                             where("id", "==", id),
-                            where("Movieid", "==", Movieid));
+                            where("movieId", "==", Movieid));
     await deleteDoc(reviewRef);
     res.status(200).json({
       message: "Review deleted successfully"
@@ -80,7 +80,7 @@ Router.delete("/reviews/:id/:Movieid", async (req, res) => {
 Router.get("/review/:id", async (req, res) => {
   try {
     const { id } = req.params;
-    const reviewRef = doc(ReviewsCollection, id);
+    const reviewRef = query(ReviewsCollection, where("movieId","==",id));
     const reviewDoc = await getDoc(reviewRef);
     
     if (!reviewDoc.exists()) {

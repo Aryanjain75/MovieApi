@@ -69,7 +69,16 @@ app.get("/manage",async(req,res)=>{
     const reviewSnapshot = await getDocs(reviewRef);
     if (reviewSnapshot.empty) { return res.status(404).json({ message: "Reviews not found" });}
     const reviews = reviewSnapshot.docs.map((doc) => ({...doc.data()}));
-        res.status(201).json({reviews:reviews});
+        let m= new Map();
+        reviews.map((data)=>{
+         if(!m.has(data.movieId))
+         {
+             m.set(data.movieId,[]);
+         }
+            let q=m.get(data.movieId);
+            m.set(data.movieId(),{voteCount:q.voteCount+1,aggregateRating:(q.aggregateRating+data.rating)/5})
+        })
+        res.status(201).json({reviews:m});
     }catch(e){
     res.status(500).json({error:e});
     }

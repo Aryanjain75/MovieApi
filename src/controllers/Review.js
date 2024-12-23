@@ -101,7 +101,7 @@ Router.get("/manage", async (req, res) => {
     const missingMovies = [];
 
     for (const [movieId, { voteCount, aggregateRating }] of movieRatingsMap.entries()) {
-      const movieRef = doc(MoviesCollection, movieId); // Reference to the movie document
+      const movieRef = doc(moviesCollection, movieId); // Reference to the movie document
 
       // Check if the document exists
       const movieDoc = await getDoc(movieRef);

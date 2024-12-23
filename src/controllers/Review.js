@@ -63,26 +63,53 @@ Router.get("/reviews/:email", async (req, res) => {
       res.status(500).json({ error: e.message, message: "Server error" });
     }
   });
-Router.get("/manage",async(req,res)=>{
-    try{
-        const reviewRef = docs(ReviewsCollection);
-    const reviewSnapshot = await getDocs(reviewRef);
-    if (reviewSnapshot.empty) { return res.status(404).json({ message: "Reviews not found" });}
-    const reviews = reviewSnapshot.docs.map((doc) => ({...doc.data()}));
-        let m= new Map();
-        reviews.map((data)=>{
-         if(!m.has(data.movieId))
-         {
-             m.set(data.movieId,[]);
-         }
-            let q=m.get(data.movieId);
-            m.set(data.movieId(),{voteCount:q.voteCount+1,aggregateRating:(q.aggregateRating+data.rating)/5})
-        })
-        res.status(201).json({reviews:m});
-    }catch(e){
-    res.status(500).json({error:e});
+Router.get("/manage", async (req, res) => {
+  try {
+    // Fetch all reviews from the ReviewsCollection
+    const reviewSnapshot = await getDocs(ReviewsCollection);
+    if (reviewSnapshot.empty) {
+      return res.status(404).json({ message: "Reviews not found" });
     }
-})
+
+    // Map to store movieId and its aggregated data
+    let movieRatingsMap = new Map();
+
+    // Loop through the reviews and aggregate data
+    reviewSnapshot.docs.forEach((doc) => {
+      const reviewData = doc.data();
+      const { movieId, rating } = reviewData;
+
+      if (!movieRatingsMap.has(movieId)) {
+        // Initialize if the movieId is not in the map
+        movieRatingsMap.set(movieId, { voteCount: 0, aggregateRating: 0 });
+      }
+
+      const currentData = movieRatingsMap.get(movieId);
+      // Update vote count and aggregate rating
+      movieRatingsMap.set(movieId, {
+        voteCount: currentData.voteCount + 1,
+        aggregateRating:
+          (currentData.aggregateRating * currentData.voteCount + rating) /
+          (currentData.voteCount + 1),
+      });
+    });
+
+    // Convert the Map to an array of objects for easier consumption
+    const aggregatedData = Array.from(movieRatingsMap.entries()).map(
+      ([movieId, { voteCount, aggregateRating }]) => ({
+        movieId,
+        voteCount,
+        aggregateRating: parseFloat(aggregateRating.toFixed(2)), // Round to 2 decimals
+      })
+    );
+
+    res.status(200).json({ message: "Aggregated data fetched successfully", data: aggregatedData });
+  } catch (e) {
+    console.error("Error managing reviews:", e);
+    res.status(500).json({ error: e.message });
+  }
+});
+
 Router.post("/reviews", async (req, res) => {
   try {
     const reviewData = req.body;

@@ -9,19 +9,27 @@ Router.get("/reviews/:id/:email", async (req, res) => {
         const { id,email } = req.params; // Movie ID from the request parameters
         const reviewsQuery = query(ReviewsCollection, where("movieId", "==", id),where("email","==",email));
         const querySnapshot = await getDocs(reviewsQuery);
-        const reviews = querySnapshot.docs.map(doc => (
-            {  ...doc.data(),MAINID:doc.id }
-        ));
-        res.status(200).json({
-            message: "Reviews fetched successfully",
-            data: reviews
-        });
+        const reviews = querySnapshot.docs.map(doc => ({  ...doc.data(),MAINID:doc.id }));
+        res.status(200).json({message: "Reviews fetched successfully",data: reviews});
     } catch (e) {
         console.error("Error fetching reviews:", e);
         res.status(500).json({ error: e.message, message: "Server down" });
     }
 });
-// Create a new review
+
+Router.get("/reviews/:email", async (req, res) => {
+    try {
+        const { email } = req.params;
+        const reviewsQuery = query(ReviewsCollection, where("email","==",email));
+        const querySnapshot = await getDocs(reviewsQuery);
+        const reviews = querySnapshot.docs.map(doc => ({...doc.data(),MAINID:doc.id }));
+        res.status(200).json({message: "Reviews fetched successfully",data: reviews});
+    } catch (e) {
+        console.error("Error fetching reviews:", e);
+        res.status(500).json({ error: e.message, message: "Server down" });
+    }
+});
+
 Router.post("/reviews", async (req, res) => {
   try {
     const reviewData = req.body;
@@ -96,19 +104,9 @@ Router.get("/review/:id", async (req, res) => {
     const { id } = req.params;
     const reviewRef = query(ReviewsCollection, where("movieId", "==", id));
     const reviewSnapshot = await getDocs(reviewRef);
-
-    if (reviewSnapshot.empty) {
-      return res.status(404).json({ message: "Review not found" });
-    }
-
-    const reviews = reviewSnapshot.docs.map((doc) => ({
-      ...doc.data(),
-    }));
-
-    res.status(200).json({
-      message: "Review(s) fetched successfully",
-      data: reviews,
-    });
+    if (reviewSnapshot.empty) { return res.status(404).json({ message: "Review not found" });}
+    const reviews = reviewSnapshot.docs.map((doc) => ({...doc.data(),MAINID:doc.id}));
+    res.status(200).json({message: "Review(s) fetched successfully",data: reviews,});
   } catch (e) {
     console.error("Error fetching review:", e);
     res.status(500).json({ error: e.message, message: "Server down" });

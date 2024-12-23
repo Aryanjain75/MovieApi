@@ -5,20 +5,57 @@ const { collection, doc, setDoc, getDoc, updateDoc, deleteDoc, getDocs } = requi
 const moviesCollection = collection(db, "movies");
 const moviedata = require("../Model/movie.json");
 
+
+
+// Helper function to get genres, years, and ratings
+const getMovieAggregations = async () => {
+  try {
+    const moviesRef = db.collection('movies');
+    const snapshot = await moviesRef.get();
+
+    const genres = new Set();
+    const years = new Set();
+    let maxRating = -Infinity;
+    let minRating = Infinity;
+
+    snapshot.forEach((doc) => {
+      const movieData = doc.data();
+      
+      // Extract genres and years
+      if (movieData.genres) {
+        movieData.genres.forEach((genre) => genres.add(genre));
+      }
+      if (movieData.releaseYear && movieData.releaseYear.year) {
+        years.add(movieData.releaseYear.year);
+      }
+      
+      // Calculate min and max ratings
+      const rating = movieData.ratingsSummary?.aggregateRating;
+      if (rating !== undefined) {
+        maxRating = Math.max(maxRating, rating);
+        minRating = Math.min(minRating, rating);
+      }
+    });
+
+    return {
+      genres: Array.from(genres),  // Convert Set to Array
+      years: Array.from(years),    // Convert Set to Array
+      ratings: { max: maxRating, min: minRating },
+    };
+
+  } catch (error) {
+    console.error('Error fetching movie aggregations:', error);
+    throw new Error('Failed to fetch data');
+  }
+};
+
+
 // Get movies with pagination
 router.get('/api/filters', async (req, res) => {
   try {
-    const genres = await Movie.distinct('genres'); // Get all unique genres
-    const years = await Movie.distinct('releaseYear.year'); // Get all release years
-    const ratings = await Movie.aggregate([
-      { $group: { _id: null, max: { $max: '$ratingsSummary.aggregateRating' }, min: { $min: '$ratingsSummary.aggregateRating' } } },
-    ]);
-
-    res.json({
-      genres,
-      years,
-      ratingRange: ratings[0] ? { min: ratings[0].min, max: ratings[0].max } : { min: 0, max: 10 },
-    });
+    const aggregations = await getMovieAggregations();
+    res.json(aggregations);
+    
   } catch (error) {
     res.status(500).send('Error fetching filters');
   }

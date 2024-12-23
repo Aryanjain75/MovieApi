@@ -98,7 +98,7 @@ Router.get("/manage", async (req, res) => {
 
     // Update each movie document in the MoviesCollection
     for (const [movieId, { voteCount, aggregateRating }] of movieRatingsMap.entries()) {
-      const movieRef = doc(MoviesCollection, movieId); // Reference to the movie document
+      const movieRef = doc(moviesCollection, movieId); // Reference to the movie document
       await updateDoc(movieRef, {
         "ratingsSummary.aggregateRating": aggregateRating, // Update the nested field
         "ratingsSummary.voteCount": voteCount,

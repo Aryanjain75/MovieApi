@@ -90,8 +90,7 @@ Router.delete("/reviews/:id/:Movieid", async (req, res) => {
     res.status(500).json({ error: e.message, message: "Server down" });
   }
 });
-
-// Get a single review by ID
+// Get a single review by movie ID
 Router.get("/review/:id", async (req, res) => {
   try {
     const { id } = req.params;
@@ -102,17 +101,18 @@ Router.get("/review/:id", async (req, res) => {
       return res.status(404).json({ message: "Review not found" });
     }
 
-    const reviewDoc = reviewSnapshot.docs[0]; // Assuming only one document is returned
+    const reviews = reviewSnapshot.docs.map((doc) => ({
+      ...doc.data(),
+    }));
+
     res.status(200).json({
-      message: "Review fetched successfully",
-      data: {
-        id: reviewDoc.id,
-        ...reviewDoc.data()
-      }
+      message: "Review(s) fetched successfully",
+      data: reviews,
     });
   } catch (e) {
     console.error("Error fetching review:", e);
     res.status(500).json({ error: e.message, message: "Server down" });
   }
 });
+
 module.exports=Router;

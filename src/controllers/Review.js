@@ -68,44 +68,58 @@ Router.get("/manage", async (req, res) => {
     // Fetch all reviews from the ReviewsCollection
     const reviewSnapshot = await getDocs(ReviewsCollection);
     if (reviewSnapshot.empty) {
-      return res.status(404).json({ message: "Reviews not found" });
+      return res.status(404).json({ message: "No reviews found" });
     }
 
-    // Map to store movieId and its aggregated data
+    // Map to store aggregated rating data by movieId
     let movieRatingsMap = new Map();
 
-    // Loop through the reviews and aggregate data
+    // Process reviews to aggregate data
     reviewSnapshot.docs.forEach((doc) => {
       const reviewData = doc.data();
       const { movieId, rating } = reviewData;
 
       if (!movieRatingsMap.has(movieId)) {
-        // Initialize if the movieId is not in the map
+        // Initialize data for a movie if it doesn't exist in the map
         movieRatingsMap.set(movieId, { voteCount: 0, aggregateRating: 0 });
       }
 
       const currentData = movieRatingsMap.get(movieId);
-      // Update vote count and aggregate rating
+      // Update vote count and calculate aggregate rating
+      const newVoteCount = currentData.voteCount + 1;
+      const newAggregateRating =
+        (currentData.aggregateRating * currentData.voteCount + rating) / newVoteCount;
+
       movieRatingsMap.set(movieId, {
-        voteCount: currentData.voteCount + 1,
-        aggregateRating:
-          (currentData.aggregateRating * currentData.voteCount + rating) /
-          (currentData.voteCount + 1),
+        voteCount: newVoteCount,
+        aggregateRating: parseFloat(newAggregateRating.toFixed(2)), // Round to 2 decimals
       });
     });
 
-    // Convert the Map to an array of objects for easier consumption
+    // Update each movie document in the MoviesCollection
+    for (const [movieId, { voteCount, aggregateRating }] of movieRatingsMap.entries()) {
+      const movieRef = doc(MoviesCollection, movieId); // Reference to the movie document
+      await updateDoc(movieRef, {
+        "ratingsSummary.aggregateRating": aggregateRating, // Update the nested field
+        "ratingsSummary.voteCount": voteCount,
+      });
+    }
+
+    // Convert the Map to an array of objects for easier response formatting
     const aggregatedData = Array.from(movieRatingsMap.entries()).map(
       ([movieId, { voteCount, aggregateRating }]) => ({
         movieId,
         voteCount,
-        aggregateRating: parseFloat(aggregateRating.toFixed(2)), // Round to 2 decimals
+        aggregateRating,
       })
     );
 
-    res.status(200).json({ message: "Aggregated data fetched successfully", data: aggregatedData });
+    res.status(200).json({
+      message: "Movies database updated successfully",
+      data: aggregatedData,
+    });
   } catch (e) {
-    console.error("Error managing reviews:", e);
+    console.error("Error managing reviews and updating movies:", e);
     res.status(500).json({ error: e.message });
   }
 });

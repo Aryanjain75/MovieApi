@@ -97,26 +97,31 @@ Router.get("/manage", async (req, res) => {
     });
 
     // Update each movie document in the MoviesCollection
-    for (const [movieId, { voteCount, aggregateRating }] of movieRatingsMap.entries()) {
-      const movieRef = doc(moviesCollection, movieId); // Reference to the movie document
-      await updateDoc(movieRef, {
-        "ratingsSummary.aggregateRating": aggregateRating, // Update the nested field
-        "ratingsSummary.voteCount": voteCount,
-      });
-    }
+    const updatedMovies = [];
+    const missingMovies = [];
 
-    // Convert the Map to an array of objects for easier response formatting
-    const aggregatedData = Array.from(movieRatingsMap.entries()).map(
-      ([movieId, { voteCount, aggregateRating }]) => ({
-        movieId,
-        voteCount,
-        aggregateRating,
-      })
-    );
+    for (const [movieId, { voteCount, aggregateRating }] of movieRatingsMap.entries()) {
+      const movieRef = doc(MoviesCollection, movieId); // Reference to the movie document
+
+      // Check if the document exists
+      const movieDoc = await getDoc(movieRef);
+      if (movieDoc.exists()) {
+        // Update the existing movie document
+        await updateDoc(movieRef, {
+          "ratingsSummary.aggregateRating": aggregateRating, // Update the nested field
+          "ratingsSummary.voteCount": voteCount,
+        });
+        updatedMovies.push(movieId);
+      } else {
+        // Record missing movies
+        missingMovies.push(movieId);
+      }
+    }
 
     res.status(200).json({
       message: "Movies database updated successfully",
-      data: aggregatedData,
+      updatedMovies,
+      missingMovies,
     });
   } catch (e) {
     console.error("Error managing reviews and updating movies:", e);

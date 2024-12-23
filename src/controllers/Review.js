@@ -63,7 +63,7 @@ Router.get("/reviews/:email", async (req, res) => {
       res.status(500).json({ error: e.message, message: "Server error" });
     }
   });
-app.get("/manage",async(req,res)=>{
+Router.get("/manage",async(req,res)=>{
     try{
         const reviewRef = docs(ReviewsCollection);
     const reviewSnapshot = await getDocs(reviewRef);

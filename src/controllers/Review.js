@@ -18,7 +18,6 @@ Router.get("/reviews/:id/:email", async (req, res) => {
         res.status(500).json({ error: e.message, message: "Server down" });
     }
 });
-
 Router.get("/reviews/:email", async (req, res) => {
     try {
       const { email } = req.params;
@@ -64,6 +63,17 @@ Router.get("/reviews/:email", async (req, res) => {
       res.status(500).json({ error: e.message, message: "Server error" });
     }
   });
+app.get("/manage",async(req,res)=>{
+    try{
+        const reviewRef = docs(ReviewsCollection);
+    const reviewSnapshot = await getDocs(reviewRef);
+    if (reviewSnapshot.empty) { return res.status(404).json({ message: "Reviews not found" });}
+    const reviews = reviewSnapshot.docs.map((doc) => ({...doc.data()}));
+        res.status(201).json({reviews:reviews});
+    }catch(e){
+    res.status(500).json({error:e});
+    }
+})
 Router.post("/reviews", async (req, res) => {
   try {
     const reviewData = req.body;

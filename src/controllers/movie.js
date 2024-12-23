@@ -8,7 +8,19 @@ const moviedata = require("../Model/movie.json");
 // Get movies with pagination
 router.get("/getmovies", async (req, res) => {
     try {
-        const { start = 0, end = 10 } = req.query; // Dynamic pagination
+        // Extract query parameters for pagination and filters
+        const {
+            start = 0,
+            end = 10,
+            title,
+            minYear,
+            maxYear,
+            minRating,
+            maxRating,
+            tags,
+            certificate,
+        } = req.query;
+
         const val = [];
         const snapshot = await getDocs(moviesCollection);
         snapshot.forEach((doc) => {
@@ -18,25 +30,126 @@ router.get("/getmovies", async (req, res) => {
                 title: movieData.title,
                 movieImage: movieData.movieImage,
                 imageCaption: movieData.imageCaption,
-                releaseYear: movieData.releaseYear,
+                releaseYear: movieData.releaseYear.year || null,
                 ratingsSummary: movieData.ratingsSummary,
-                runtime: movieData.runtime,
-                certificate: movieData.certificate,
-                tags: movieData.tags, // Ensure tags are stored as flat arrays
+                runtime: movieData.runtime.seconds || null,
+                certificate: movieData.certificate || null,
+                tags: movieData.tags || [], // Ensure tags are stored as flat arrays
                 latestTrailer: movieData.latestTrailer,
                 reviews: movieData.reviews || [],
                 reviewstars: movieData.reviewstars || 0,
             });
         });
 
+        // Apply filters
+        let filteredMovies = val;
+
+        // Filter by title (case-insensitive partial match)
+        if (title) {
+            const titleLowerCase = title.toLowerCase();
+            filteredMovies = filteredMovies.filter((movie) =>
+                movie.title.toLowerCase().includes(titleLowerCase)
+            );
+        }
+
+        // Filter by release year range
+        if (minYear) {
+            filteredMovies = filteredMovies.filter(
+                (movie) => movie.releaseYear >= parseInt(minYear)
+            );
+        }
+        if (maxYear) {
+            filteredMovies = filteredMovies.filter(
+                (movie) => movie.releaseYear <= parseInt(maxYear)
+            );
+        }
+
+        // Filter by ratings range
+        if (minRating) {
+            filteredMovies = filteredMovies.filter(
+                (movie) => movie.ratingsSummary.aggregateRating >= parseFloat(minRating)
+            );
+        }
+        if (maxRating) {
+            filteredMovies = filteredMovies.filter(
+                (movie) => movie.ratingsSummary.aggregateRating <= parseFloat(maxRating)
+            );
+        }
+
+        // Filter by tags
+        if (tags) {
+            const tagArray = tags.split(","); // Expect comma-separated tags in query
+            filteredMovies = filteredMovies.filter((movie) =>
+                tagArray.every((tag) => movie.tags.includes(tag))
+            );
+        }
+
+        // Filter by certificate
+        if (certificate) {
+            filteredMovies = filteredMovies.filter(
+                (movie) => movie.certificate === certificate
+            );
+        }
+
+        // Pagination
+        const paginatedMovies = filteredMovies.slice(start, end);
+
+        // Response
         res.status(200).json({
-            size: val.length,
-            data: val,
-            paginated: val.slice(start, end),
-            paginatedlength: val.slice(start, end).length,
+            size: filteredMovies.length, // Total filtered results
+            data: filteredMovies,
+            paginated: paginatedMovies, // Paginated results
+            paginatedlength: paginatedMovies.length, // Length of paginated results
         });
     } catch (e) {
         console.error("Error fetching movie data:", e);
+        res.status(500).json({ error: e.message, message: "Server down" });
+    }
+});
+router.get("/filters", async (req, res) => {
+    try {
+        const snapshot = await getDocs(moviesCollection);
+
+        // Initialize sets to store unique values for each filter
+        const tagsSet = new Set();
+        const certificatesSet = new Set();
+        const releaseYearsSet = new Set();
+
+        snapshot.forEach((doc) => {
+            const movieData = doc.data();
+
+            // Extract and collect unique tags
+            if (Array.isArray(movieData.tags)) {
+                movieData.tags.forEach((tag) => tagsSet.add(tag));
+            }
+
+            // Collect unique certificates
+            if (movieData.certificate) {
+                certificatesSet.add(movieData.certificate);
+            }
+
+            // Collect unique release years
+            if (movieData.releaseYear?.year) {
+                releaseYearsSet.add(movieData.releaseYear.year);
+            }
+        });
+
+        // Convert sets to arrays and sort values for better UX
+        const tags = Array.from(tagsSet).sort();
+        const certificates = Array.from(certificatesSet).sort();
+        const releaseYears = Array.from(releaseYearsSet).sort((a, b) => a - b); // Sort numerically
+
+        // Response with all filter details
+        res.status(200).json({
+            message: "Filter metadata fetched successfully",
+            data: {
+                tags,
+                certificates,
+                releaseYears,
+            },
+        });
+    } catch (e) {
+        console.error("Error fetching filter metadata:", e);
         res.status(500).json({ error: e.message, message: "Server down" });
     }
 });

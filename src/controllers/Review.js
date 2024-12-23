@@ -10,7 +10,7 @@ Router.get("/reviews/:id/:email", async (req, res) => {
         const reviewsQuery = query(ReviewsCollection, where("movieId", "==", id),where("email","==",email));
         const querySnapshot = await getDocs(reviewsQuery);
         const reviews = querySnapshot.docs.map(doc => (
-            {  ...doc.data() }
+            {  ...doc.data(),MAINID:doc.id }
         ));
         res.status(200).json({
             message: "Reviews fetched successfully",

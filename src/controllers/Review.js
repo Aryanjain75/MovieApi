@@ -51,7 +51,7 @@ Router.get("/reviews/:email", async (req, res) => {
 
     // Query movies collection for the collected movie IDs
     const moviesQuery = query(
-      MoviesCollection,
+      moviesCollection,
       where("id", "in", Array.from(movieIds))
     );
     const moviesSnapshot = await getDocs(moviesQuery);

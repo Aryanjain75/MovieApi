@@ -20,87 +20,50 @@ Router.get("/reviews/:id/:email", async (req, res) => {
 });
 
 Router.get("/reviews/:email", async (req, res) => {
-  try {
-    const { email } = req.params;
-
-    // Query reviews for the given email
-    const reviewsQuery = query(ReviewsCollection, where("email", "==", email));
-    const reviewsSnapshot = await getDocs(reviewsQuery);
-
-    // Collect reviews and associated movie IDs
-    const reviews = [];
-    const movieIds = new Set();
-
-    reviewsSnapshot.forEach((doc) => {
-      const reviewData = doc.data();
-      reviews.push({
-        ...reviewData,
-        reviewId: doc.id, // Add review document ID
-      });
-
-      if (reviewData.movieid) {
-        movieIds.add(reviewData.movieid);
+    try {
+      const { email } = req.params;
+  
+      // Query to fetch reviews by email
+      const reviewsQuery = query(ReviewsCollection, where("email", "==", email));
+      const reviewsSnapshot = await getDocs(reviewsQuery);
+  
+      if (reviewsSnapshot.empty) {
+        return res.status(404).json({ message: "No reviews found" });
       }
-    });
-
-    if (reviews.length === 0) {
-      return res
-        .status(200)
-        .json({ message: "No reviews found for the given email", data: [] });
+  
+      // Fetch all reviews
+      const reviews = reviewsSnapshot.docs.map(doc => ({
+        id: doc.id,
+        ...doc.data(),
+      }));
+  
+      // Use Promise.all to handle async calls for fetching movie data
+      const reviewsData = await Promise.all(
+        reviews.map(async (review) => {
+          const MovieQuery = query(moviesCollection, where("id", "==", review.movieId));
+          const MovieSnapshot = await getDocs(MovieQuery);
+  
+          // Assuming only one movie matches
+          const movie = MovieSnapshot.empty ? null : MovieSnapshot.docs[0].data();
+  
+          return {
+            id: review.id,
+            email: review.email,
+            movieId: review.movieId,
+            description:review.description,
+            stars: review.rating,
+            name: review.name,
+            movie,
+          };
+        })
+      );
+  
+      res.status(200).json({ message: "Reviews fetched successfully", data: reviewsData });
+    } catch (e) {
+      console.error("Error fetching reviews:", e);
+      res.status(500).json({ error: e.message, message: "Server error" });
     }
-
-    if (movieIds.size === 0) {
-      // If no movie IDs, return reviews without movie details
-      return res
-        .status(200)
-        .json({ message: "Reviews fetched successfully", data: reviews });
-    }
-
-    // Query movies collection for the collected movie IDs
-    const movieIdArray = Array.from(movieIds);
-    const movies = {};
-
-    // Firebase 'in' filter supports a maximum of 10 items; batch if needed
-    const batchSize = 10;
-    for (let i = 0; i < movieIdArray.length; i += batchSize) {
-      const batchIds = movieIdArray.slice(i, i + batchSize);
-      const moviesQuery = query(MoviesCollection, where("id", "in", batchIds));
-      const moviesSnapshot = await getDocs(moviesQuery);
-
-      moviesSnapshot.forEach((doc) => {
-        const movieData = doc.data();
-        movies[movieData.id] = {
-          id: movieData.id,
-          title: movieData.title,
-          movieImage: movieData.movieImage,
-          imageCaption: movieData.imageCaption,
-          releaseYear: movieData.releaseYear,
-          ratingsSummary: movieData.ratingsSummary,
-          runtime: movieData.runtime,
-          certificate: movieData.certificate,
-          tags: movieData.tags,
-          latestTrailer: movieData.latestTrailer,
-          reviews: movieData.reviews || [],
-          reviewstars: movieData.reviewstars || 0,
-        };
-      });
-    }
-
-    // Enrich reviews with corresponding movie details
-    const enrichedReviews = reviews.map((review) => ({
-      ...review,
-      movieDetails: movies[review.movieid] || null, // Attach movie details if found
-    }));
-
-    res
-      .status(200)
-      .json({ message: "Reviews fetched successfully", data: enrichedReviews });
-  } catch (e) {
-    console.error("Error fetching reviews:", e);
-    res.status(500).json({ error: e.message, message: "Server error" });
-  }
-});
-
+  });
 Router.post("/reviews", async (req, res) => {
   try {
     const reviewData = req.body;

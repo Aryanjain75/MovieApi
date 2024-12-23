@@ -4,6 +4,8 @@ const Router=express.Router();
 const { db } = require("../firebase"); 
 const { collection, doc, setDoc, getDoc, updateDoc, deleteDoc, getDocs ,query,where} = require("firebase/firestore");
 const ReviewsCollection = collection(db, "reviews");
+const moviesCollection = collection(db, "movies");
+
 Router.get("/reviews/:id/:email", async (req, res) => {
     try {
         const { id,email } = req.params; // Movie ID from the request parameters
@@ -18,16 +20,74 @@ Router.get("/reviews/:id/:email", async (req, res) => {
 });
 
 Router.get("/reviews/:email", async (req, res) => {
-    try {
-        const { email } = req.params;
-        const reviewsQuery = query(ReviewsCollection, where("email","==",email));
-        const querySnapshot = await getDocs(reviewsQuery);
-        const reviews = querySnapshot.docs.map(doc => ({...doc.data(),MAINID:doc.id }));
-        res.status(200).json({message: "Reviews fetched successfully",data: reviews});
-    } catch (e) {
-        console.error("Error fetching reviews:", e);
-        res.status(500).json({ error: e.message, message: "Server down" });
+  try {
+    const { email } = req.params;
+
+    // Query reviews for the given email
+    const reviewsQuery = query(ReviewsCollection, where("email", "==", email));
+    const reviewsSnapshot = await getDocs(reviewsQuery);
+
+    // Collect reviews and associated movie IDs
+    const reviews = [];
+    const movieIds = new Set();
+
+    reviewsSnapshot.forEach((doc) => {
+      const reviewData = doc.data();
+      reviews.push({
+        ...reviewData,
+        reviewId: doc.id, // Add review document ID
+      });
+
+      if (reviewData.movieid) {
+        movieIds.add(reviewData.movieid);
+      }
+    });
+
+    if (reviews.length === 0) {
+      return res
+        .status(200)
+        .json({ message: "No reviews found for the given email", data: [] });
     }
+
+    // Query movies collection for the collected movie IDs
+    const moviesQuery = query(
+      MoviesCollection,
+      where("id", "in", Array.from(movieIds))
+    );
+    const moviesSnapshot = await getDocs(moviesQuery);
+
+    const movies = {};
+    moviesSnapshot.forEach((doc) => {
+      const movieData = doc.data();
+      movies[movieData.id] = {
+        id: movieData.id,
+        title: movieData.title,
+        movieImage: movieData.movieImage,
+        imageCaption: movieData.imageCaption,
+        releaseYear: movieData.releaseYear,
+        ratingsSummary: movieData.ratingsSummary,
+        runtime: movieData.runtime,
+        certificate: movieData.certificate,
+        tags: movieData.tags,
+        latestTrailer: movieData.latestTrailer,
+        reviews: movieData.reviews || [],
+        reviewstars: movieData.reviewstars || 0,
+      };
+    });
+
+    // Enrich reviews with corresponding movie details
+    const enrichedReviews = reviews.map((review) => ({
+      ...review,
+      movieDetails: movies[review.movieid] || null, // Attach movie details if found
+    }));
+
+    res
+      .status(200)
+      .json({ message: "Reviews fetched successfully", data: enrichedReviews });
+  } catch (e) {
+    console.error("Error fetching reviews:", e);
+    res.status(500).json({ error: e.message, message: "Server error" });
+  }
 });
 
 Router.post("/reviews", async (req, res) => {

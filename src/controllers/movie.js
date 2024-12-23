@@ -6,6 +6,24 @@ const moviesCollection = collection(db, "movies");
 const moviedata = require("../Model/movie.json");
 
 // Get movies with pagination
+router.get('/api/filters', async (req, res) => {
+  try {
+    const genres = await Movie.distinct('genres'); // Get all unique genres
+    const years = await Movie.distinct('releaseYear.year'); // Get all release years
+    const ratings = await Movie.aggregate([
+      { $group: { _id: null, max: { $max: '$ratingsSummary.aggregateRating' }, min: { $min: '$ratingsSummary.aggregateRating' } } },
+    ]);
+
+    res.json({
+      genres,
+      years,
+      ratingRange: ratings[0] ? { min: ratings[0].min, max: ratings[0].max } : { min: 0, max: 10 },
+    });
+  } catch (error) {
+    res.status(500).send('Error fetching filters');
+  }
+});
+
 router.get("/getmovies", async (req, res) => {
     try {
         // Extract query parameters for pagination and filters

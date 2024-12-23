@@ -49,31 +49,42 @@ Router.get("/reviews/:email", async (req, res) => {
         .json({ message: "No reviews found for the given email", data: [] });
     }
 
-    // Query movies collection for the collected movie IDs
-    const moviesQuery = query(
-      moviesCollection,
-      where("id", "in", Array.from(movieIds))
-    );
-    const moviesSnapshot = await getDocs(moviesQuery);
+    if (movieIds.size === 0) {
+      // If no movie IDs, return reviews without movie details
+      return res
+        .status(200)
+        .json({ message: "Reviews fetched successfully", data: reviews });
+    }
 
+    // Query movies collection for the collected movie IDs
+    const movieIdArray = Array.from(movieIds);
     const movies = {};
-    moviesSnapshot.forEach((doc) => {
-      const movieData = doc.data();
-      movies[movieData.id] = {
-        id: movieData.id,
-        title: movieData.title,
-        movieImage: movieData.movieImage,
-        imageCaption: movieData.imageCaption,
-        releaseYear: movieData.releaseYear,
-        ratingsSummary: movieData.ratingsSummary,
-        runtime: movieData.runtime,
-        certificate: movieData.certificate,
-        tags: movieData.tags,
-        latestTrailer: movieData.latestTrailer,
-        reviews: movieData.reviews || [],
-        reviewstars: movieData.reviewstars || 0,
-      };
-    });
+
+    // Firebase 'in' filter supports a maximum of 10 items; batch if needed
+    const batchSize = 10;
+    for (let i = 0; i < movieIdArray.length; i += batchSize) {
+      const batchIds = movieIdArray.slice(i, i + batchSize);
+      const moviesQuery = query(MoviesCollection, where("id", "in", batchIds));
+      const moviesSnapshot = await getDocs(moviesQuery);
+
+      moviesSnapshot.forEach((doc) => {
+        const movieData = doc.data();
+        movies[movieData.id] = {
+          id: movieData.id,
+          title: movieData.title,
+          movieImage: movieData.movieImage,
+          imageCaption: movieData.imageCaption,
+          releaseYear: movieData.releaseYear,
+          ratingsSummary: movieData.ratingsSummary,
+          runtime: movieData.runtime,
+          certificate: movieData.certificate,
+          tags: movieData.tags,
+          latestTrailer: movieData.latestTrailer,
+          reviews: movieData.reviews || [],
+          reviewstars: movieData.reviewstars || 0,
+        };
+      });
+    }
 
     // Enrich reviews with corresponding movie details
     const enrichedReviews = reviews.map((review) => ({

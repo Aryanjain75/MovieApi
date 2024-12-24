@@ -1,7 +1,6 @@
 const express = require("express");
 const Router = express.Router();
-const {login,validateToken,signup,forgetPassword}=require("../handlers/Authhandlers");
-dotenv.config();
+const {login,validateToken,signup,forgetPassword,userDetails,logout}=require("../handler/Authhandlers");
 Router.post("/login", login);
 Router.post("/signup",signup )
 Router.put("/forgetPassword",forgetPassword);

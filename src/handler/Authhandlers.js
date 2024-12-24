@@ -4,6 +4,7 @@ const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 const dotenv = require("dotenv");
 const { db } = require("../firebase");
+dotenv.config();
 const {collection,doc,setDoc,getDoc,updateDoc,} = require("firebase/firestore");
 const validateToken = async (req, res, next) => {
   try {

@@ -10,7 +10,7 @@ const {
   reviewmovieid,
   deletereviewidmovie,
   reviewid
-}=require("../handlers/Reviewhandler");
+}=require("../handler/Reviewhandler");
 Router.get("/reviews/:id/:email",reviewemailid );
 Router.get("/reviews/:email",reviewemail );
 Router.get("/manage",manageReview);

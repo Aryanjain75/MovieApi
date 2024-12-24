@@ -81,18 +81,18 @@ router.get("/getmovies", async (req, res) => {
         snapshot.forEach((doc) => {
             const movieData = doc.data();
             val.push({
-                id: movieData.id,
-                title: movieData.title,
-                movieImage: movieData.movieImage,
-                imageCaption: movieData.imageCaption,
-                releaseYear: movieData.releaseYear.year || null,
-                ratingsSummary: movieData.ratingsSummary,
-                runtime: movieData.runtime.seconds || null,
-                certificate: movieData.certificate || null,
-                tags: movieData.tags || [], // Ensure tags are stored as flat arrays
-                latestTrailer: movieData.latestTrailer,
-                reviews: movieData.reviews || [],
-                reviewstars: movieData.reviewstars || 0,
+                id: movieData?.id,
+                title: movieData?.title,
+                movieImage: movieData?.movieImage,
+                imageCaption: movieData?.imageCaption,
+                releaseYear: movieData?.releaseYear?.year || null,
+                ratingsSummary: movieData?.ratingsSummary,
+                runtime: movieData?.runtime?.seconds || null,
+                certificate: movieData?.certificate || null,
+                tags: movieData?.tags || [], // Ensure tags are stored as flat arrays
+                latestTrailer: movieData?.latestTrailer,
+                reviews: movieData?.reviews || [],
+                reviewstars: movieData?.reviewstars || 0,
             });
         });
 

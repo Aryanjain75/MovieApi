@@ -7,33 +7,21 @@ const authRouter = require("./controllers/Auth");
 const cookieParser = require("cookie-parser");
 const ReviewRouter=require("./controllers/Review");
 dotenv.config();
-
 const app = express();
 app.use(express.json());
-
 const allowedOrigins = process.env.ORIGINS||["http://localhost:5174","http://localhost:5173/"];
-
 app.use(cors({
-    origin: 'http://localhost:5173', // Replace with your frontend's domain in production
-    methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'], // Allow DELETE and other methods
-    credentials: true // Allow cookies/authorization headers
+    origin: allowedOrigins, 
+    methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+    credentials: true 
 }));
-// Middleware for parsing JSON and URL-encoded bodies
 app.use(express.urlencoded({ extended: true }));
-
-// Middleware for parsing cookies
 app.use(cookieParser());
-
-// Define routes
 app.use("/", movieRouter);
 app.use("/in", movieIdRouter);
 app.use("/auth", authRouter);
 app.use("/Review", ReviewRouter);
-
-// Set the port from environment or default to 3000
 const PORT = process.env.PORT || 3000;
-
-// Start the server
 app.listen(PORT, (err) => {
   if (err) {
     console.error("Error starting server:", err);
